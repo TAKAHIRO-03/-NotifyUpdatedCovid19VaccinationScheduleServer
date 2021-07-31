@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NotifyUpdatedCovid19VaccinationScheduleServerApplication {
+public class App {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NotifyUpdatedCovid19VaccinationScheduleServerApplication.class, args);
+		SpringApplication.run(App.class, args);
 	}
 
 }
