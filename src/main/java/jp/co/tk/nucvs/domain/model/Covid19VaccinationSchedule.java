@@ -10,11 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity(name = "covid19_vaccination_schedule")
-@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 public class Covid19VaccinationSchedule extends RevisionInfo implements Serializable {
 
@@ -23,9 +23,6 @@ public class Covid19VaccinationSchedule extends RevisionInfo implements Serializ
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-//    @Column(name = "covid19_vaccination_venue_id")
-//    private Long covid19VaccinationVenueId;
 
     private Date availabilityDate;
 

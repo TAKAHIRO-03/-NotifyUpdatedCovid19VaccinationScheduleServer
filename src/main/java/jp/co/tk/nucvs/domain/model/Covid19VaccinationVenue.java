@@ -7,12 +7,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity(name = "covid19_vaccination_venue")
-@AllArgsConstructor
+@NoArgsConstructor
 @Getter
+@ToString
+@EqualsAndHashCode
 public class Covid19VaccinationVenue implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -21,9 +25,11 @@ public class Covid19VaccinationVenue implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String prefecture;
+    private String region;
 
-    private String district;
+    private String city;
+
+    private String area;
 
     private String venue;
 
