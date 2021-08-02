@@ -1,14 +1,21 @@
 package jp.co.tk.nucvs.domain.service;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mockStatic;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.time.Month;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.TreeMap;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import jp.co.tk.nucvs.domain.model.Covid19VaccinationScheduleDTO;
@@ -27,32 +34,93 @@ public class ReqCovid19VaccinationWebSiteServiceTests {
 			public Optional<Covid19VaccinationScheduleDTO> request() throws IOException {
 				return null;
 			}
+
+			@Override
+			public List<String> createQueryParm() {
+				return null;
+			}
 		};
 	}
 
 	@Test
-	void 実行日から1か月後_2か月後_3か月後の値が取得することが出来るか() throws Exception {
+	void 実行日が10月の時_年の値は同一であること() throws Exception {
 
-		val actualDataMonths = service.getThreeMonthsFromToday();
-		val expectedMonthsList = List.of(
-				List.of(Month.JANUARY, Month.FEBRUARY, Month.MARCH),
-				List.of(Month.FEBRUARY, Month.MARCH, Month.APRIL),
-				List.of(Month.MARCH, Month.APRIL, Month.MAY),
-				List.of(Month.APRIL, Month.MAY, Month.JUNE),
-				List.of(Month.MAY, Month.JUNE, Month.JULY),
-				List.of(Month.JUNE, Month.JULY, Month.AUGUST),
-				List.of(Month.JULY, Month.AUGUST, Month.SEPTEMBER),
-				List.of(Month.AUGUST, Month.SEPTEMBER, Month.OCTOBER),
-				List.of(Month.SEPTEMBER, Month.OCTOBER, Month.NOVEMBER),
-				List.of(Month.OCTOBER, Month.NOVEMBER, Month.DECEMBER),
-				List.of(Month.NOVEMBER, Month.DECEMBER, Month.JANUARY),
-				List.of(Month.DECEMBER, Month.JANUARY, Month.FEBRUARY)
-			);
+		val zoneId = ZoneId.of("Asia/Tokyo");
+		try (MockedStatic<ReqCovid19VaccinationWebSiteService> mocked = mockStatic(
+				ReqCovid19VaccinationWebSiteService.class)) {
+			String ymd = "20211001";
+			mocked.when(() -> {
+				Method method = ReqCovid19VaccinationWebSiteService.class.getDeclaredMethod("getZonedDateTime");
+				method.setAccessible(true);
+				method.invoke(service);
+			}).thenReturn(ZonedDateTime.of(Integer.valueOf(ymd.substring(0, 4)), Integer.valueOf(ymd.substring(4, 6)),
+					Integer.valueOf(ymd.substring(6, 8)), 0, 0, 0, 0, zoneId));
+			var actualMonths = service.getThreeMonthsFromToday();
+			var expectedMonths = Collections.unmodifiableMap(new TreeMap<Month, Integer>() {
+				{
+					put(Month.OCTOBER, 2021);
+					put(Month.NOVEMBER, 2021);
+					put(Month.DECEMBER, 2021);
+				}
+			});
 
-		var trueCount = expectedMonthsList.stream().filter((months) -> months.equals(actualDataMonths)).count();
+			assertEquals(expectedMonths, actualMonths);
+		};
 
-		assertNotEquals(0, trueCount);
-		assertEquals(1, trueCount);
+	}
+
+	@Test
+	void 実行日が11月の時_1月の年の値は11月の年の値の翌年であること() throws Exception {
+
+		val zoneId = ZoneId.of("Asia/Tokyo");
+		try (MockedStatic<ReqCovid19VaccinationWebSiteService> mocked = mockStatic(
+				ReqCovid19VaccinationWebSiteService.class)) {
+			String ymd = "20211101";
+			mocked.when(() -> {
+				Method method = ReqCovid19VaccinationWebSiteService.class.getDeclaredMethod("getZonedDateTime");
+				method.setAccessible(true);
+				method.invoke(service);
+			}).thenReturn(ZonedDateTime.of(Integer.valueOf(ymd.substring(0, 4)), Integer.valueOf(ymd.substring(4, 6)),
+					Integer.valueOf(ymd.substring(6, 8)), 0, 0, 0, 0, zoneId));
+			var actualMonths = service.getThreeMonthsFromToday();
+			var expectedMonths = Collections.unmodifiableMap(new TreeMap<Month, Integer>() {
+				{
+					put(Month.NOVEMBER, 2021);
+					put(Month.DECEMBER, 2021);
+					put(Month.JANUARY, 2022);
+				}
+			});
+
+			assertEquals(expectedMonths, actualMonths);
+		};
+
+	}
+
+	@Test
+	void 実行日が12月の時_1月と2月の年の値は12月の年の値の翌年であること() throws Exception {
+
+		val zoneId = ZoneId.of("Asia/Tokyo");
+		try (MockedStatic<ReqCovid19VaccinationWebSiteService> mocked = mockStatic(
+				ReqCovid19VaccinationWebSiteService.class)) {
+			String ymd = "20211201";
+			mocked.when(() -> {
+				Method method = ReqCovid19VaccinationWebSiteService.class.getDeclaredMethod("getZonedDateTime");
+				method.setAccessible(true);
+				method.invoke(service);
+			}).thenReturn(ZonedDateTime.of(Integer.valueOf(ymd.substring(0, 4)), Integer.valueOf(ymd.substring(4, 6)),
+					Integer.valueOf(ymd.substring(6, 8)), 0, 0, 0, 0, zoneId));
+			var actualMonths = service.getThreeMonthsFromToday();
+			var expectedMonths = Collections.unmodifiableMap(new TreeMap<Month, Integer>() {
+				{
+					put(Month.DECEMBER, 2021);
+					put(Month.JANUARY, 2022);
+					put(Month.FEBRUARY, 2022);
+				}
+			});
+
+			assertEquals(expectedMonths, actualMonths);
+		};
+
 	}
 
 }
