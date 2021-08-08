@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -62,12 +63,20 @@ public class ReqAdachikuServiceImpl implements ReqCovid19VaccinationWebSiteServi
 				log.error(e.getMessage(), e);
 			}
 		}
-		/**
-		 * 
-		 * TODO Sortが必要であれば、 Collections.sort(list, new
-		 * Comparator<Covid19VaccinationScheduleDTO>(){...}); でソートを定義する。
-		 * 
-		 */
+
+		 Collections.sort(dtoList, new Comparator<Covid19VaccinationScheduleDTO>(){
+			@Override
+			public int compare(Covid19VaccinationScheduleDTO o1, Covid19VaccinationScheduleDTO o2) {
+				if(o1.getAvailabilityDate().getTime() < o2.getAvailabilityDate().getTime()) {
+					return -1;
+				} else if(o1.getAvailabilityDate().getTime() > o2.getAvailabilityDate().getTime()) {
+					return 1;
+				} else {
+					return 0;
+				}
+			}
+		 });
+
 		return Collections.unmodifiableList(dtoList);
 	}
 
@@ -109,6 +118,8 @@ public class ReqAdachikuServiceImpl implements ReqCovid19VaccinationWebSiteServi
 					if (covid19VaccinationVenue.isPresent()) {
 						dtoList.add(new Covid19VaccinationScheduleDTO(dateTime, availabilityCnt,
 								covid19VaccinationVenue.get()));
+					} else {
+						log.warn("\"" + venue + "\"" + " is Not found venue in DB.");
 					}
 				}
 				_1stToEndOfMonthCnt++;
