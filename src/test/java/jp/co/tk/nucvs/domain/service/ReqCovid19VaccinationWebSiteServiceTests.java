@@ -33,11 +33,6 @@ public class ReqCovid19VaccinationWebSiteServiceTests {
 			public List<Covid19VaccinationScheduleDTO> request() throws IOException {
 				return null;
 			}
-
-			@Override
-			public List<String> createQueryParm() {
-				return null;
-			}
 		};
 	}
 

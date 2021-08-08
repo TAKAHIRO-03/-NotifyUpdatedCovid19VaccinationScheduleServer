@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+
 import jp.co.tk.nucvs.domain.model.Covid19VaccinationScheduleDTO;
 import lombok.val;
 
@@ -21,16 +24,14 @@ import lombok.val;
  */
 public interface ReqCovid19VaccinationWebSiteService {
 
-	public List<Covid19VaccinationScheduleDTO> request() throws IOException;
-
-	public List<String> createQueryParm();
+	public List<Covid19VaccinationScheduleDTO> request() throws IOException, InterruptedException;
 
 	public static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36";
 
 	/**
-	 * TODO 実行してから１か月後、２か月後、３か月の３つの月を取得する。
+	 * 実行してから１か月後、２か月後、３か月の３つの月を取得する
 	 *
-	 * @return List<Month> １か月後、２か月後、３か月の３つの月
+	 * @return Map<Month> １か月後、２か月後、３か月の３つの月
 	 */
 	default Map<Month, Integer> getThreeMonthsFromToday() {
 		val today = getZonedDateTime();
@@ -59,6 +60,30 @@ public interface ReqCovid19VaccinationWebSiteService {
 		return Collections.unmodifiableMap(ymMap);
 	}
 
+	/**
+	 * 
+	 * JSoupでリクエストを送るときのオブジェクトを初期化
+	 * 
+	 * @param url https://...から始まる値
+	 * @return Connection
+	 */
+	default Connection initJsoup(String url) {
+		val con = Jsoup.connect(url);
+		con.userAgent(USER_AGENT);
+		con.header("Accept-Language", "ja");
+		con.header("Accept-Encoding", "gzip, deflate");
+		con.maxBodySize(0);
+		con.timeout(0);
+		return con;
+	}
+
+	/**
+	 * 
+	 * JST時間を返却
+	 * テストでZonedDateTimeのモックを作るために定義
+	 * 
+	 * @return ZonedDateTime JST時間 
+	 */
 	private static ZonedDateTime getZonedDateTime() {
 		val zoneId = ZoneId.of("Asia/Tokyo");
 		val today = ZonedDateTime.now(zoneId);
