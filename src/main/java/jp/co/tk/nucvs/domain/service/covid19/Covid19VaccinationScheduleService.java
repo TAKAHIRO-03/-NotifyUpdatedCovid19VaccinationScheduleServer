@@ -16,12 +16,16 @@ public class Covid19VaccinationScheduleService {
     private final Covid19VaccinationScheduleRepository repo;
 
     @Transactional
-    public void insertAll(List<Covid19VaccinationSchedule> covid19vs) {
+    public void saveAll(List<Covid19VaccinationSchedule> covid19vs) {
         repo.saveAll(covid19vs);
     }
 
     public long count() {
         return repo.count();
+    }
+
+    public List<Covid19VaccinationSchedule> findByCovid19vsOrderByAvaDateAndAvaCnt(String city) {
+        return repo.findByCovid19vsOrderByAvaDateAndAvaCnt(city);
     }
 
 }
