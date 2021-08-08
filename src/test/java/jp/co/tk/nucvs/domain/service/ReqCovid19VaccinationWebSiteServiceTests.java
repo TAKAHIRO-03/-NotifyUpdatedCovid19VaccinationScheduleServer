@@ -10,7 +10,6 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 import java.util.TreeMap;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -31,7 +30,7 @@ public class ReqCovid19VaccinationWebSiteServiceTests {
 	void 関数実行前() {
 		service = new ReqCovid19VaccinationWebSiteService() {
 			@Override
-			public Optional<Covid19VaccinationScheduleDTO> request() throws IOException {
+			public List<Covid19VaccinationScheduleDTO> request() throws IOException {
 				return null;
 			}
 
