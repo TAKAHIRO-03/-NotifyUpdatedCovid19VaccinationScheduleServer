@@ -14,7 +14,6 @@ import java.util.TreeMap;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.MockedStatic;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import jp.co.tk.nucvs.domain.model.Covid19VaccinationScheduleDTO;
@@ -40,8 +39,7 @@ public class ReqCovid19VaccinationWebSiteServiceTests {
 	void 実行日が10月の時_年の値は同一であること() throws Exception {
 
 		val zoneId = ZoneId.of("Asia/Tokyo");
-		try (MockedStatic<ReqCovid19VaccinationWebSiteService> mocked = mockStatic(
-				ReqCovid19VaccinationWebSiteService.class)) {
+		try (val mocked = mockStatic(ReqCovid19VaccinationWebSiteService.class)) {
 			String ymd = "20211001";
 			mocked.when(() -> {
 				Method method = ReqCovid19VaccinationWebSiteService.class.getDeclaredMethod("getZonedDateTime");
@@ -59,7 +57,8 @@ public class ReqCovid19VaccinationWebSiteServiceTests {
 			});
 
 			assertEquals(expectedMonths, actualMonths);
-		};
+		}
+		;
 
 	}
 
@@ -67,8 +66,7 @@ public class ReqCovid19VaccinationWebSiteServiceTests {
 	void 実行日が11月の時_1月の年の値は11月の年の値の翌年であること() throws Exception {
 
 		val zoneId = ZoneId.of("Asia/Tokyo");
-		try (MockedStatic<ReqCovid19VaccinationWebSiteService> mocked = mockStatic(
-				ReqCovid19VaccinationWebSiteService.class)) {
+		try (val mocked = mockStatic(ReqCovid19VaccinationWebSiteService.class)) {
 			String ymd = "20211101";
 			mocked.when(() -> {
 				Method method = ReqCovid19VaccinationWebSiteService.class.getDeclaredMethod("getZonedDateTime");
@@ -94,8 +92,7 @@ public class ReqCovid19VaccinationWebSiteServiceTests {
 	void 実行日が12月の時_1月と2月の年の値は12月の年の値の翌年であること() throws Exception {
 
 		val zoneId = ZoneId.of("Asia/Tokyo");
-		try (MockedStatic<ReqCovid19VaccinationWebSiteService> mocked = mockStatic(
-				ReqCovid19VaccinationWebSiteService.class)) {
+		try (val mocked = mockStatic(ReqCovid19VaccinationWebSiteService.class)) {
 			String ymd = "20211201";
 			mocked.when(() -> {
 				Method method = ReqCovid19VaccinationWebSiteService.class.getDeclaredMethod("getZonedDateTime");
