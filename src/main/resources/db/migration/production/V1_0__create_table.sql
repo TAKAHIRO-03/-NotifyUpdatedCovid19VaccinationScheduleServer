@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS public.covid19_vaccination_venue (
-	id BIGSERIAL NOT NULL PRIMARY KEY,
+	id SERIAL NOT NULL PRIMARY KEY,
 	region VARCHAR(50) NOT NULL,
 	city VARCHAR(50) NOT NULL,
 	area VARCHAR(50) NOT NULL,
@@ -9,8 +9,8 @@ CREATE TABLE IF NOT EXISTS public.covid19_vaccination_venue (
 ALTER TABLE public.covid19_vaccination_venue OWNER TO nucvsuser;
 
 CREATE TABLE IF NOT EXISTS public.covid19_vaccination_schedule (
-	id BIGSERIAL NOT NULL PRIMARY KEY,
-	covid19_vaccination_venue_id BIGINT NOT NULL REFERENCES public.covid19_vaccination_venue(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	id SERIAL NOT NULL PRIMARY KEY,
+	covid19_vaccination_venue_id INT NOT NULL REFERENCES public.covid19_vaccination_venue(id) ON DELETE CASCADE ON UPDATE CASCADE,
 	availability_date DATE NOT NULL,
 	availability_count INT NOT NULL,
 	created_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
