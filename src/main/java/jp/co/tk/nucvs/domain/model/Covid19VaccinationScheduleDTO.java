@@ -1,20 +1,22 @@
 package jp.co.tk.nucvs.domain.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+@Data
 @AllArgsConstructor
-@Getter
+@NoArgsConstructor
 public class Covid19VaccinationScheduleDTO implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     @NonNull
-    private Date availabilityDate;
+    private LocalDate availabilityDate;
 
     @NonNull
     private Integer availabilityCount;

@@ -1,7 +1,7 @@
 package jp.co.tk.nucvs.domain.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -30,8 +28,7 @@ public class Covid19VaccinationSchedule extends RevisionInfo implements Serializ
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Temporal(TemporalType.DATE)
-    private Date availabilityDate;
+    private LocalDate availabilityDate;
 
     private Integer availabilityCount;
 
