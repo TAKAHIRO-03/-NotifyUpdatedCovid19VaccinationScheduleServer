@@ -1,4 +1,4 @@
-package jp.co.tk.nucvs.domain.service;
+package jp.co.tk.nucvs.domain.service.covid19;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mockStatic;
@@ -17,7 +17,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import jp.co.tk.nucvs.domain.model.Covid19VaccinationScheduleDTO;
-import jp.co.tk.nucvs.domain.service.covid19.ReqCovid19VaccinationWebSiteService;
 import lombok.val;
 
 @SpringBootTest

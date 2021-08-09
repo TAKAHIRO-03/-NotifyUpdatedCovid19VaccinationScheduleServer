@@ -72,7 +72,13 @@ public class ReqAdachikuServiceImpl implements ReqCovid19VaccinationWebSiteServi
 				} else if(o1.getAvailabilityDate().getTime() > o2.getAvailabilityDate().getTime()) {
 					return 1;
 				} else {
-					return 0;
+					if(o1.getAvailabilityCount() < o2.getAvailabilityCount()) {
+						return -1;
+					} else if(o1.getAvailabilityCount() > o2.getAvailabilityCount()){
+						return 1;
+					} else {
+						return 0;
+					}
 				}
 			}
 		 });

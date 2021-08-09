@@ -1,4 +1,4 @@
-package jp.co.tk.nucvs.domain.service;
+package jp.co.tk.nucvs.domain.service.covid19;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -22,8 +22,6 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 import jp.co.tk.nucvs.domain.model.Covid19VaccinationScheduleDTO;
 import jp.co.tk.nucvs.domain.repo.Covid19VaccinationVenueRepository;
-import jp.co.tk.nucvs.domain.service.covid19.ReqAdachikuServiceImpl;
-import jp.co.tk.nucvs.domain.service.covid19.ReqCovid19VaccinationWebSiteService;
 import jp.co.tk.nucvs.domain.service.exception.ParseDomException;
 import lombok.val;
 
