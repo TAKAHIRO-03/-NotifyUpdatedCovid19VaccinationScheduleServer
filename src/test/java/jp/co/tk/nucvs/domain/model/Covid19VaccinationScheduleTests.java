@@ -1,0 +1,43 @@
+package jp.co.tk.nucvs.domain.model;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import jp.co.tk.nucvs.domain.repo.Covid19VaccinationScheduleRepository;
+import jp.co.tk.nucvs.domain.repo.Covid19VaccinationVenueRepository;
+import lombok.val;
+
+@SpringBootTest
+public class Covid19VaccinationScheduleTests extends RevisionInfo implements Serializable {
+
+    @Autowired
+    Covid19VaccinationVenueRepository venueRepo;
+
+    @Autowired
+    Covid19VaccinationScheduleRepository scheRepo;
+
+    @BeforeEach
+    void 関数実行前() {
+    }
+
+    @Test
+    void idとcreated_timeとupdated_timeの値が異なっていてそれ以外は同じ値の時equalsメソッドがtrueを返却するか() throws Exception {
+        val o1 = scheRepo.findById(1).get();
+
+        val o2 = new Covid19VaccinationSchedule();
+        o2.setAvailabilityDate(new SimpleDateFormat("yyyy/MM/dd hh:mm:ss").parse("2021/08/11 00:00:00"));
+        o2.setAvailabilityCount(1);
+        o2.setCovid19VaccinationVenue(venueRepo.findById(28).get());
+
+        assertTrue(o1.equals(o2));
+    }
+
+
+}

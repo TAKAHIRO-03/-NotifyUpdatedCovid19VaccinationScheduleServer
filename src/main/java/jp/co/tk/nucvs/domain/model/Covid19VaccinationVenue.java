@@ -1,14 +1,15 @@
 package jp.co.tk.nucvs.domain.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.EqualsAndHashCode;
@@ -21,7 +22,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @Getter
 @ToString(exclude = {"covid19VaccinationSchedule"})
-@EqualsAndHashCode
+@EqualsAndHashCode(exclude = {"covid19VaccinationSchedule"})
 public class Covid19VaccinationVenue implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -37,9 +38,8 @@ public class Covid19VaccinationVenue implements Serializable {
     private String area;
 
     private String venue;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "covid19_vaccination_venue_id")
-    private Covid19VaccinationSchedule covid19VaccinationSchedule;
+ 
+    @OneToMany(mappedBy = "covid19VaccinationVenue", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private List<Covid19VaccinationSchedule> covid19VaccinationSchedule;
 
 }

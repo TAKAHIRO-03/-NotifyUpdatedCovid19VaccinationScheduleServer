@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import lombok.val;
+
 @SpringBootTest
 public class Covid19VaccinationVenueRepositoryTests {
 
@@ -18,7 +20,10 @@ public class Covid19VaccinationVenueRepositoryTests {
 
     @Test
 	void 実行確認() throws Exception {
-        repo.findAll();
+        val result = repo.findAll();
+        val result2 = result.get(0).getCovid19VaccinationSchedule();
+        val result3 = result.get(0).getCovid19VaccinationSchedule();
+        repo.deleteById(94);
     }
     
 }

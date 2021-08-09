@@ -7,7 +7,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import jp.co.tk.nucvs.domain.model.Covid19VaccinationSchedule;
@@ -19,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @SpringBootApplication(scanBasePackageClasses = App.class)
-@EnableScheduling
+// @EnableScheduling
 @RequiredArgsConstructor
 public class App {
 
@@ -31,9 +30,8 @@ public class App {
 	}
 
 	/**
-	 * TODO
-	 * ・定期実行を行う処理を書く
-	 * ・コロナの予防接種のサイト
+	 * TODO ・定期実行を行う処理を書く ・コロナの予防接種のサイト
+	 * 
 	 * @throws InterruptedException
 	 * @throws IOException
 	 */
@@ -41,12 +39,13 @@ public class App {
 	public void updatedDetectionExecute() throws IOException, InterruptedException {
 		log.info("Start notifies you of updates to your Covid19 vaccination appointments.");
 
- 		val dtoList = reqService.request();
+		val dtoList = reqService.request();
 		val modelMapper = modelMapper();
-		val covid19vs = dtoList.parallelStream().map(ey -> modelMapper.map(ey, Covid19VaccinationSchedule.class)).collect(Collectors.toList());
-		if(covid19vsService.count() == 0) {
-			covid19vsService.insertAll(covid19vs);
-		}
+		val covid19vsFromWeb = dtoList.parallelStream().map(ey -> modelMapper.map(ey, Covid19VaccinationSchedule.class))
+				.collect(Collectors.toList());
+		val covid19vsFromDb = covid19vsService.findByCovid19vsOrderByAvaDateAndAvaCnt("足立区");
+		covid19vsService.updateAll(covid19vsFromWeb, covid19vsFromDb);
+
 	}
 
 	@Bean
