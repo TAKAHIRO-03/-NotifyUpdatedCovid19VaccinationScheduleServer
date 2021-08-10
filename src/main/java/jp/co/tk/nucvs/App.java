@@ -1,6 +1,8 @@
 package jp.co.tk.nucvs;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,13 +48,14 @@ public class App {
 	 * 
 	 * @throws IOException
 	 * @throws InterruptedException
+	 * @throws URISyntaxException
 	 */
 	@Scheduled(cron = "1 * * * * *", zone = "Asia/Tokyo")
-	public void updatedDetectionExecute() throws IOException, InterruptedException {
+	public void updatedDetectionExecute() throws IOException, InterruptedException, URISyntaxException {
 
 		log.info("Start notifies you of updates to your Covid19 vaccination appointments.");
-		val dtoList = reqCovid19Service.request();
 
+		val dtoList = reqCovid19Service.request();
 		if(dtoList.isEmpty()) {
 			log.info("The cron terminated because the data in the website is empty.");
 			return;
@@ -64,7 +67,7 @@ public class App {
 
 		val covid19vsFromDb = covid19vsService.findByCovid19vsOrderByAvaDateAndAvaCnt("足立区");
 		val covid19vsDto = modelMapper.mapAll(covid19vsFromDb, Covid19VaccinationScheduleDTO.class);
-		reqLineService.doNotify(covid19vsDto, "https://adachi.hbf-rsv.jp/");
+		reqLineService.doNotify(covid19vsDto, new URI("https://adachi.hbf-rsv.jp/").toString());
 		
 		log.info("The cron terminated.");
 	}

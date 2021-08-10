@@ -1,6 +1,7 @@
 package jp.co.tk.nucvs.domain.service.covid19;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.time.Month;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -24,7 +25,7 @@ import lombok.val;
  */
 public interface ReqCovid19VaccinationWebSiteService {
 
-	public List<Covid19VaccinationScheduleDTO> request() throws IOException, InterruptedException;
+	public List<Covid19VaccinationScheduleDTO> request() throws IOException, InterruptedException, URISyntaxException;
 
 	/**
 	 * 実行してから１か月後、２か月後、３か月の３つの月を取得する

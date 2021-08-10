@@ -11,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import jp.co.tk.nucvs.core.log.Logger;
@@ -29,7 +30,7 @@ public class ReqLineNotifyService {
   @Logger
 	private static Log log;
 
-  public void doNotify(List<Covid19VaccinationScheduleDTO> covid19vsDto, String covid19Url) {
+  public void doNotify(List<Covid19VaccinationScheduleDTO> covid19vsDto, String covid19Url) throws URISyntaxException {
 
     val _1stTime2ndTimePair = PairCovid19VaccinationScheduleDTO.createPair(covid19vsDto);
     val msg = createMsg(_1stTime2ndTimePair, covid19Url);
@@ -40,14 +41,13 @@ public class ReqLineNotifyService {
     headers.setContentType(new MediaType(MediaType.APPLICATION_FORM_URLENCODED, Charset.forName("utf-8")));
     headers.add("Authorization", "Bearer " + ACCESS_TOKEN);
 
-    try {
-      RequestEntity<LinkedMultiValueMap<String, String>> req = RequestEntity.post(new URI(LINE_URL)).headers(headers)
-          .body(params);
-      val res = restTemplate.exchange(req, String.class);
-      log.debug("status:" + res.getStatusCodeValue() + "\n" + "body:" + res.getBody());
+    RequestEntity<LinkedMultiValueMap<String, String>> req = RequestEntity.post(new URI(LINE_URL)).headers(headers)
+        .body(params);
+    val res = restTemplate.exchange(req, String.class);
+    log.info("LINE Notify responce body:" + res.getBody());
 
-    } catch (URISyntaxException e) {
-      log.error("Catch ReqLineNotifyService.doNotify", e);
+    if(res.getStatusCodeValue() != 200) {
+      throw new RestClientException("LINE Notify responced a status code " + res.getStatusCodeValue());
     }
   }
 

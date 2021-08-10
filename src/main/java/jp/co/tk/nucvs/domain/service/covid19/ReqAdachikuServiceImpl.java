@@ -1,7 +1,8 @@
 package jp.co.tk.nucvs.domain.service.covid19;
 
 import java.io.IOException;
-import java.text.ParseException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.logging.Log;
+import org.jsoup.HttpStatusException;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,7 +40,7 @@ public class ReqAdachikuServiceImpl implements ReqCovid19VaccinationWebSiteServi
 	}
 
 	@Override
-	public List<Covid19VaccinationScheduleDTO> request() throws IOException, InterruptedException {
+	public List<Covid19VaccinationScheduleDTO> request() throws IOException, InterruptedException, URISyntaxException {
 
 		// 実行日の日付から３か月間の月と年を返却
 		val threeMonthsMap = getThreeMonthsFromToday();
@@ -54,17 +56,20 @@ public class ReqAdachikuServiceImpl implements ReqCovid19VaccinationWebSiteServi
 			Thread.sleep(1000);
 
 			// Jsoup初期化
-			val con = initJsoup(URL + "?year=" + monthEntry.getValue() + "&month=" + monthEntry.getKey().getValue());
+			val url = new URI(URL + "?year=" + monthEntry.getValue() + "&month=" + monthEntry.getKey().getValue());
+			val con = initJsoup(url.toString());
 
 			// リクエスト
 			val doc = con.get();
 
-			// DOM解析
-			try {
-				parseDom(doc, monthEntry, dtoList, venueListFromDb);
-			} catch (ParseException | ParseDomException e) {
-				log.error(e.getMessage(), e);
+			// レスポンス
+			val res = con.response();
+			if(res.statusCode() != 200) {
+				throw new HttpStatusException("Responsed other than 200 were returned from Adachi Web Covid19 vaccination site.", res.statusCode(), url.toString());
 			}
+
+			// DOM解析
+			parseDom(doc, monthEntry, dtoList, venueListFromDb);
 		}
 
 		 Collections.sort(dtoList, new Comparator<Covid19VaccinationScheduleDTO>(){
@@ -90,7 +95,7 @@ public class ReqAdachikuServiceImpl implements ReqCovid19VaccinationWebSiteServi
 	}
 
 	private void parseDom(Document doc, Map.Entry<Month, Integer> monthEntry,
-			List<Covid19VaccinationScheduleDTO> dtoList, List<Covid19VaccinationVenue> venueListFromDb) throws ParseException {
+			List<Covid19VaccinationScheduleDTO> dtoList, List<Covid19VaccinationVenue> venueListFromDb) {
 
 		int maxDateAsInt = 0;
 		String[] venueListFromWeb = {};
