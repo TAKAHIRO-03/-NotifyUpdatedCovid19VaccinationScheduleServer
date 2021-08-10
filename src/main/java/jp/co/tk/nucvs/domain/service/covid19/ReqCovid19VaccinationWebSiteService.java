@@ -74,6 +74,8 @@ public interface ReqCovid19VaccinationWebSiteService {
 		con.header("Content-Type", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9");
 		con.maxBodySize(0);
 		con.timeout(0);
+		con.cookie("PHPSESSID", "vo5frquc5g73pcn1cavj5bslvj");
+		con.cookie("sac-elb-session", "7452d58c35142136");
 		return con;
 	}
 

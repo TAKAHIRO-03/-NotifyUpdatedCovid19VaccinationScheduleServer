@@ -50,7 +50,7 @@ public class App {
 	 * @throws InterruptedException
 	 * @throws URISyntaxException
 	 */
-	@Scheduled(cron = "1 * * * * *", zone = "Asia/Tokyo")
+	@Scheduled(cron = "${scheduling.cron}", zone = "Asia/Tokyo")
 	public void updatedDetectionExecute() throws IOException, InterruptedException, URISyntaxException {
 
 		log.info("Start notifies you of updates to your Covid19 vaccination appointments.");
