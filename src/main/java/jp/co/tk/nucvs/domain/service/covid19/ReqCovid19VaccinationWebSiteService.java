@@ -26,8 +26,6 @@ public interface ReqCovid19VaccinationWebSiteService {
 
 	public List<Covid19VaccinationScheduleDTO> request() throws IOException, InterruptedException;
 
-	public static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36";
-
 	/**
 	 * 実行してから１か月後、２か月後、３か月の３つの月を取得する
 	 *
@@ -69,9 +67,10 @@ public interface ReqCovid19VaccinationWebSiteService {
 	 */
 	default Connection initJsoup(String url) {
 		val con = Jsoup.connect(url);
-		con.userAgent(USER_AGENT);
+		con.userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36 Edg/92.0.902.67");
 		con.header("Accept-Language", "ja");
-		con.header("Accept-Encoding", "gzip, deflate");
+		con.header("Accept-Encoding", "br,gzip,deflate");
+		con.header("Content-Type", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9");
 		con.maxBodySize(0);
 		con.timeout(0);
 		return con;

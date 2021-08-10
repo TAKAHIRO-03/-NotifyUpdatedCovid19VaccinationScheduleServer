@@ -11,23 +11,25 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jp.co.tk.nucvs.core.log.Logger;
 import jp.co.tk.nucvs.domain.model.Covid19VaccinationScheduleDTO;
 import jp.co.tk.nucvs.domain.model.Covid19VaccinationVenue;
 import jp.co.tk.nucvs.domain.repo.Covid19VaccinationVenueRepository;
 import jp.co.tk.nucvs.domain.service.exception.ParseDomException;
 import lombok.val;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Service
 public class ReqAdachikuServiceImpl implements ReqCovid19VaccinationWebSiteService {
 
 	private final Covid19VaccinationVenueRepository repo;
 	private final String URL;
+	@Logger
+	private static Log log;
 
 	@Autowired
 	public ReqAdachikuServiceImpl(Covid19VaccinationVenueRepository repo) {
