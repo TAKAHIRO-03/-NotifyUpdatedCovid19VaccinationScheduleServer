@@ -21,6 +21,12 @@ public class PairCovid19VaccinationScheduleDTO {
     val fstLdPlus28 = fstLd.plusDays(28);
     val sndLd = sndApp.getAvailabilityDate();
 
+    if(fstApp.getCovid19VaccinationVenue().getCity().equals(sndApp.getCovid19VaccinationVenue().getCity())){
+      val errorMsg = "The city are different. " + "The first vaccination appointment is " + fstApp
+          + "," + "The second vaccination appointment is " + sndApp + ".";
+      throw new IllegalArgumentException(errorMsg);
+    }
+
     if (fstLdPlus28.isAfter(sndLd)) {
       val errorMsg = "The second vaccination appointment has not been more "
           + "than 28 days since the first vaccination appointment. " + "The first vaccination appointment is " + fstApp
@@ -42,6 +48,9 @@ public class PairCovid19VaccinationScheduleDTO {
       val fstLd = fst.getAvailabilityDate();
       val fstLdPlus28 = fstLd.plusDays(28);
       covid19vsDto.parallelStream().filter(snd -> {
+        if(fst.getCovid19VaccinationVenue().getCity().equals(snd.getCovid19VaccinationVenue().getCity())){
+          return false;
+        }
         val sndLd = snd.getAvailabilityDate();
         return fstLdPlus28.isEqual(sndLd) || fstLdPlus28.isBefore(sndLd);
       }).forEach(snd -> {

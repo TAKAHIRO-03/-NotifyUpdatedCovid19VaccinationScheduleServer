@@ -3,7 +3,6 @@ package jp.co.tk.nucvs;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.time.DayOfWeek;
 
 import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,14 +66,6 @@ public class App {
 		covid19vsService.updateAll(covid19vsFromWeb);
 
 		val covid19vsFromDb = covid19vsService.findAllByOrderByAvailabilityDateAscAvailabilityCountAsc();
-		/**
-		 * モデルナ会場と平日のデータは削除する。
-		 */
-		covid19vsFromDb.removeIf(x -> { 
-			val isModernaVenue = x.getCovid19VaccinationVenue().getVenue().contains("モデルナ");
-			val isNotHoliday = x.getAvailabilityDate().getDayOfWeek() != DayOfWeek.SATURDAY || x.getAvailabilityDate().getDayOfWeek() != DayOfWeek.SUNDAY;
-			return isModernaVenue || isNotHoliday;
-		});
 		val covid19vsDto = modelMapper.mapAll(covid19vsFromDb, Covid19VaccinationScheduleDTO.class);
 		reqLineService.doNotify(covid19vsDto, new URI("https://adachi.hbf-rsv.jp/").toString());
 		

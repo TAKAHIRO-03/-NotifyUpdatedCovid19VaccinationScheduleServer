@@ -3,6 +3,7 @@ package jp.co.tk.nucvs.domain.service.line;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.Charset;
+import java.time.DayOfWeek;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -32,6 +33,15 @@ public class ReqLineNotifyService {
 	private static Log log;
 
   public void doNotify(List<Covid19VaccinationScheduleDTO> covid19vsDto, String covid19Url) throws URISyntaxException {
+
+    /**
+     * モデルナ会場と平日のデータは削除する。
+     */
+    covid19vsDto.removeIf(x -> { 
+      val isModernaVenue = x.getCovid19VaccinationVenue().getVenue().contains("モデルナ");
+      val isNotHoliday = x.getAvailabilityDate().getDayOfWeek() != DayOfWeek.SATURDAY || x.getAvailabilityDate().getDayOfWeek() != DayOfWeek.SUNDAY;
+      return isModernaVenue || isNotHoliday;
+    });
 
     val _1stTime2ndTimePair = PairCovid19VaccinationScheduleDTO.createPair(covid19vsDto);
     if(CollectionUtils.isEmpty(_1stTime2ndTimePair)){

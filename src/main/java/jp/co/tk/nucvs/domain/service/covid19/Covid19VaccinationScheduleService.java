@@ -23,7 +23,7 @@ public class Covid19VaccinationScheduleService {
 
     @Transactional
     public void updateAll(List<Covid19VaccinationSchedule> covid19vsFromWeb) {
-        val covid19vsFromDb = repo.findAll();
+        val covid19vsFromDb = repo.findAllByOrderByAvailabilityDateAscAvailabilityCountAsc();
         val diffWebToDb = compareDbAndWeb(covid19vsFromWeb, covid19vsFromDb);
         repo.saveAll(diffWebToDb);
         log.info("Save count is " + diffWebToDb.size());
