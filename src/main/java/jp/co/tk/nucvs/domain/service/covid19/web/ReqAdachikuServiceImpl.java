@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.logging.Log;
-import org.jsoup.HttpStatusException;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -65,33 +64,33 @@ class ReqAdachikuServiceImpl implements ReqCovid19VaccinationWebSiteService {
 
 			// レスポンス
 			val res = con.response();
-			log.info("Jsoup responce \"" + res.statusCode() + "\"");
-			if(res.statusCode() != 200) {
-				throw new HttpStatusException("Responsed other than 200 were returned from Adachi Web Covid19 vaccination site.", res.statusCode(), url.toString());
+			if (res.statusCode() != 200) {
+				log.warn("Responsed other than 200 were returned from Adachi Web Covid19 vaccination site. status code is"
+								+ "\"" + res.statusCode() + "\"" + ". url is \"" + url.toString() + "\"");
 			}
 
 			// DOM解析
 			parseDom(doc, monthEntry, dtoList, venueListFromDb);
 		}
 
-		 Collections.sort(dtoList, new Comparator<Covid19VaccinationScheduleDTO>(){
+		Collections.sort(dtoList, new Comparator<Covid19VaccinationScheduleDTO>() {
 			@Override
 			public int compare(Covid19VaccinationScheduleDTO o1, Covid19VaccinationScheduleDTO o2) {
-				if(o1.getAvailabilityDate().isBefore(o2.getAvailabilityDate())) {
+				if (o1.getAvailabilityDate().isBefore(o2.getAvailabilityDate())) {
 					return -1;
-				} else if(o1.getAvailabilityDate().isAfter(o2.getAvailabilityDate())) {
+				} else if (o1.getAvailabilityDate().isAfter(o2.getAvailabilityDate())) {
 					return 1;
 				} else {
-					if(o1.getAvailabilityCount() < o2.getAvailabilityCount()) {
+					if (o1.getAvailabilityCount() < o2.getAvailabilityCount()) {
 						return -1;
-					} else if(o1.getAvailabilityCount() > o2.getAvailabilityCount()){
+					} else if (o1.getAvailabilityCount() > o2.getAvailabilityCount()) {
 						return 1;
 					} else {
 						return 0;
 					}
 				}
 			}
-		 });
+		});
 
 		return Collections.unmodifiableList(dtoList);
 	}
@@ -125,16 +124,14 @@ class ReqAdachikuServiceImpl implements ReqCovid19VaccinationWebSiteService {
 					val availabilityCnt = Integer.valueOf(availabilityFromWeb[start].replaceAll("人", ""));
 					val _1stToEndOfMonthCntStr = String.valueOf(_1stToEndOfMonthCnt);
 					val monthStr = String.valueOf(monthEntry.getKey().getValue());
-					val inpDateStr = monthEntry.getValue() + "-" 
-							+ monthStr.format("%2s", monthStr).replace(" ", "0") + "-"
-							+ _1stToEndOfMonthCntStr.format("%2s", _1stToEndOfMonthCntStr).replace(" ", "0");
+					val inpDateStr = monthEntry.getValue() + "-" + monthStr.format("%2s", monthStr).replace(" ", "0")
+							+ "-" + _1stToEndOfMonthCntStr.format("%2s", _1stToEndOfMonthCntStr).replace(" ", "0");
 					val ld = LocalDate.parse(inpDateStr, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 					val venue = venueListFromWeb[i].trim();
 					val covid19VaccinationVenue = venueListFromDb.stream().filter(x -> x.getVenue().equals(venue))
 							.findFirst();
 					if (covid19VaccinationVenue.isPresent()) {
-						dtoList.add(new Covid19VaccinationScheduleDTO(ld, availabilityCnt,
-								covid19VaccinationVenue.get()));
+						dtoList.add(new Covid19VaccinationScheduleDTO(ld, availabilityCnt, covid19VaccinationVenue.get()));
 					} else {
 						log.warn("\"" + venue + "\"" + " is Not found in covid19_vaccination_venue.");
 					}

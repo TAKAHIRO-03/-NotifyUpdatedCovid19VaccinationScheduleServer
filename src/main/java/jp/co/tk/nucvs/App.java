@@ -1,7 +1,6 @@
 package jp.co.tk.nucvs;
 
 import java.io.IOException;
-import java.net.URI;
 import java.net.URISyntaxException;
 
 import org.apache.commons.logging.Log;
@@ -55,19 +54,19 @@ public class App {
 
 		log.info("Start notify you of updates to your Covid19 vaccination appointments.");
 
-		val dtoList = reqService.request();
-		if(dtoList.isEmpty()) {
+		val reqDtoList = reqService.request();
+		if(reqDtoList.isEmpty()) {
 			log.info("The cron terminated because the data in the website is empty.");
 			return;
 		}
 		
 		val modelMapper = modelMapper();
-		val covid19vsFromWeb = modelMapper.mapAll(dtoList, Covid19VaccinationSchedule.class);
+		val covid19vsFromWeb = modelMapper.mapAll(reqDtoList, Covid19VaccinationSchedule.class);
 		covid19vsService.updateAll(covid19vsFromWeb);
 
 		val covid19vsFromDb = covid19vsService.findAllByOrderByAvailabilityDateAscAvailabilityCountAsc();
 		val covid19vsDto = modelMapper.mapAll(covid19vsFromDb, Covid19VaccinationScheduleDTO.class);
-		reqLineService.doNotify(covid19vsDto, new URI("https://adachi.hbf-rsv.jp/").toString());
+		reqLineService.doNotify(covid19vsDto);
 		
 		log.info("The cron terminated.");
 	}

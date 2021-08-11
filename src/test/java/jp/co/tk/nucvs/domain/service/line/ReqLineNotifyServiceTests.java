@@ -33,7 +33,7 @@ public class ReqLineNotifyServiceTests {
     void LINE通知が遅れるか() throws Exception {
 		val covid19vsFromDb = covid19vsService.findByCovid19vsOrderByAvaDateAndAvaCnt("足立区");
 		val covid19vsDto = modelMapper.mapAll(covid19vsFromDb, Covid19VaccinationScheduleDTO.class);
-        reqLineService.doNotify(covid19vsDto, "https://adachi.hbf-rsv.jp/");
+        reqLineService.doNotify(covid19vsDto);
     }
 
 }

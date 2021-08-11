@@ -124,3 +124,17 @@ VALUES
 	('東京', '足立区', '千住地区', '生涯学習センター（学びピア２１内）'),
 	('東京', '足立区', '千住地区', '東京電機大学（東京千住キャンパス）')
 ;
+
+CREATE TABLE IF NOT EXISTS public.user_info (
+	id SERIAL NOT NULL PRIMARY KEY,
+	line_notify_token VARCHAR(50) NOT NULL UNIQUE,
+	covid19_vaccination_url VARCHAR(50) NOT NULL,
+	city_name VARCHAR(50) NOT NULL,
+	created_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	updated_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO
+	public.user_info(line_notify_token, covid19_vaccination_url, city_name)
+VALUES
+	('PDjmXcmFeET08ltQNTkPAxqKt0bzEdbyTfbhVAxpcbl', 'https://adachi.hbf-rsv.jp/', '足立区'); 
