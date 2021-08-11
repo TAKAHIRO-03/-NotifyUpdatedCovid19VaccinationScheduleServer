@@ -61,9 +61,11 @@ public class ReqAdachikuServiceImpl implements ReqCovid19VaccinationWebSiteServi
 
 			// リクエスト
 			val doc = con.get();
+			log.info("Jsoup request URL \"" + url.toString() + "\"");
 
 			// レスポンス
 			val res = con.response();
+			log.info("Jsoup responce \"" + res.statusCode() + "\"");
 			if(res.statusCode() != 200) {
 				throw new HttpStatusException("Responsed other than 200 were returned from Adachi Web Covid19 vaccination site.", res.statusCode(), url.toString());
 			}
@@ -134,7 +136,7 @@ public class ReqAdachikuServiceImpl implements ReqCovid19VaccinationWebSiteServi
 						dtoList.add(new Covid19VaccinationScheduleDTO(ld, availabilityCnt,
 								covid19VaccinationVenue.get()));
 					} else {
-						log.warn("\"" + venue + "\"" + " is Not found venue in DB.");
+						log.warn("\"" + venue + "\"" + " is Not found in covid19_vaccination_venue.");
 					}
 				}
 				_1stToEndOfMonthCnt++;

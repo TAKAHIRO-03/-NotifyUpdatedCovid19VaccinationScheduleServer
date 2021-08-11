@@ -10,6 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
@@ -33,6 +34,11 @@ public class ReqLineNotifyService {
   public void doNotify(List<Covid19VaccinationScheduleDTO> covid19vsDto, String covid19Url) throws URISyntaxException {
 
     val _1stTime2ndTimePair = PairCovid19VaccinationScheduleDTO.createPair(covid19vsDto);
+    if(CollectionUtils.isEmpty(_1stTime2ndTimePair)){
+      log.info("Vaccination schedule could not be found, so no LINE notification was sent.");
+      return;
+    }
+    
     val msg = createMsg(_1stTime2ndTimePair, covid19Url);
     val params = new LinkedMultiValueMap<String, String>();
     params.add("message", msg);
@@ -43,8 +49,9 @@ public class ReqLineNotifyService {
 
     RequestEntity<LinkedMultiValueMap<String, String>> req = RequestEntity.post(new URI(LINE_URL)).headers(headers)
         .body(params);
+    log.info("LINE Notify request url \"" + req.getUrl() + "\"");
     val res = restTemplate.exchange(req, String.class);
-    log.info("LINE Notify responce body:" + res.getBody());
+    log.info("LINE Notify responce \"" + res.getBody() + "\"");
 
     if(res.getStatusCodeValue() != 200) {
       throw new RestClientException("LINE Notify responced a status code " + res.getStatusCodeValue());
@@ -52,31 +59,31 @@ public class ReqLineNotifyService {
   }
 
   private String createMsg(List<PairCovid19VaccinationScheduleDTO> _1stTime2ndTimePair, String covid19Url) {
+
     val msgBuilder = new StringBuilder();
     var count = 0;
+    val fstPairVenue = _1stTime2ndTimePair.get(0).getFstApp().getCovid19VaccinationVenue();
+    msgBuilder.append(System.getProperty("line.separator"));
+    msgBuilder.append(fstPairVenue.getRegion()+ " " + fstPairVenue.getCity());
+    msgBuilder.append(System.getProperty("line.separator"));
+
     for (val ava : _1stTime2ndTimePair) {
-      count++;
       val fst = ava.getFstApp();
       val snd = ava.getSndApp();
       msgBuilder.append("====================");
       msgBuilder.append(System.getProperty("line.separator"));
-      msgBuilder.append("1回目 " + fst.getAvailabilityDate());
+      msgBuilder.append("1回目 " + fst.getAvailabilityDate() + " " + fst.getCovid19VaccinationVenue().getArea() + " " + fst.getCovid19VaccinationVenue().getVenue());
       msgBuilder.append(System.getProperty("line.separator"));
-      msgBuilder.append(fst.getCovid19VaccinationVenue().getRegion() + " " + fst.getCovid19VaccinationVenue().getCity()
-              + " " + fst.getCovid19VaccinationVenue().getArea() + " " + fst.getCovid19VaccinationVenue().getVenue());
+      msgBuilder.append("2回目 " + snd.getAvailabilityDate() + " " + snd.getCovid19VaccinationVenue().getArea() + " " + snd.getCovid19VaccinationVenue().getVenue());
       msgBuilder.append(System.getProperty("line.separator"));
-      msgBuilder.append("2回目 " + snd.getAvailabilityDate());
-      msgBuilder.append(System.getProperty("line.separator"));
-      msgBuilder.append(snd.getCovid19VaccinationVenue().getRegion() + " " + snd.getCovid19VaccinationVenue().getCity()
-              + " " + snd.getCovid19VaccinationVenue().getArea() + " " + snd.getCovid19VaccinationVenue().getVenue());
-      msgBuilder.append(System.getProperty("line.separator"));
-      msgBuilder.append("====================");
+      count++;
       if (count == 10) {
         break;
       }
     }
     msgBuilder.append(System.getProperty("line.separator"));
     msgBuilder.append(covid19Url);
+
     return msgBuilder.toString();
   }
 

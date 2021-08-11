@@ -3,6 +3,7 @@ package jp.co.tk.nucvs;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.DayOfWeek;
 
 import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +54,7 @@ public class App {
 	@Scheduled(cron = "${scheduling.cron}", zone = "Asia/Tokyo")
 	public void updatedDetectionExecute() throws IOException, InterruptedException, URISyntaxException {
 
-		log.info("Start notifies you of updates to your Covid19 vaccination appointments.");
+		log.info("Start notify you of updates to your Covid19 vaccination appointments.");
 
 		val dtoList = reqCovid19Service.request();
 		if(dtoList.isEmpty()) {
@@ -66,6 +67,14 @@ public class App {
 		covid19vsService.updateAdachiAvailability(covid19vsFromWeb);
 
 		val covid19vsFromDb = covid19vsService.findByCovid19vsOrderByAvaDateAndAvaCnt("足立区");
+		/**
+		 * モデルナ会場と平日のデータは削除する。
+		 */
+		covid19vsFromDb.removeIf(x -> { 
+			val isModernaVenue = x.getCovid19VaccinationVenue().getVenue().contains("モデルナ");
+			val isNotHoliday = x.getAvailabilityDate().getDayOfWeek() != DayOfWeek.SATURDAY || x.getAvailabilityDate().getDayOfWeek() != DayOfWeek.SUNDAY;
+			return isModernaVenue || isNotHoliday;
+		});
 		val covid19vsDto = modelMapper.mapAll(covid19vsFromDb, Covid19VaccinationScheduleDTO.class);
 		reqLineService.doNotify(covid19vsDto, new URI("https://adachi.hbf-rsv.jp/").toString());
 		
