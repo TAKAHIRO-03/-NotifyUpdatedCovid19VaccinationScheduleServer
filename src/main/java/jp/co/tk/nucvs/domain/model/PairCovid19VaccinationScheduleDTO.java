@@ -18,18 +18,18 @@ public class PairCovid19VaccinationScheduleDTO {
   private PairCovid19VaccinationScheduleDTO(Covid19VaccinationScheduleDTO fstApp,
       Covid19VaccinationScheduleDTO sndApp) {
     val fstLd = fstApp.getAvailabilityDate();
-    val fstLdPlus28 = fstLd.plusDays(28);
+    val fstLdPlus21 = fstLd.plusDays(21);
     val sndLd = sndApp.getAvailabilityDate();
 
-    if(fstApp.getCovid19VaccinationVenue().getCity().equals(sndApp.getCovid19VaccinationVenue().getCity())){
+    if( ! fstApp.getCovid19VaccinationVenue().getCity().equals(sndApp.getCovid19VaccinationVenue().getCity())){
       val errorMsg = "The city are different. " + "The first vaccination appointment is " + fstApp
           + "," + "The second vaccination appointment is " + sndApp + ".";
       throw new IllegalArgumentException(errorMsg);
     }
 
-    if (fstLdPlus28.isAfter(sndLd)) {
+    if (fstLdPlus21.isAfter(sndLd)) {
       val errorMsg = "The second vaccination appointment has not been more "
-          + "than 28 days since the first vaccination appointment. " + "The first vaccination appointment is " + fstApp
+          + "than 21 days since the first vaccination appointment. " + "The first vaccination appointment is " + fstApp
           + "," + "The second vaccination appointment is " + sndApp + ".";
       throw new IllegalArgumentException(errorMsg);
     }
@@ -46,13 +46,13 @@ public class PairCovid19VaccinationScheduleDTO {
     val pair = new ArrayList<PairCovid19VaccinationScheduleDTO>();
     for (val fst : covid19vsDto) {
       val fstLd = fst.getAvailabilityDate();
-      val fstLdPlus28 = fstLd.plusDays(28);
+      val fstLdPlus21 = fstLd.plusDays(21);
       covid19vsDto.parallelStream().filter(snd -> {
-        if(fst.getCovid19VaccinationVenue().getCity().equals(snd.getCovid19VaccinationVenue().getCity())){
+        if( ! fst.getCovid19VaccinationVenue().getCity().equals(snd.getCovid19VaccinationVenue().getCity())){
           return false;
         }
         val sndLd = snd.getAvailabilityDate();
-        return fstLdPlus28.isEqual(sndLd) || fstLdPlus28.isBefore(sndLd);
+        return fstLdPlus21.isEqual(sndLd) || fstLdPlus21.isBefore(sndLd);
       }).forEach(snd -> {
         pair.add(new PairCovid19VaccinationScheduleDTO(fst, snd));
       });
