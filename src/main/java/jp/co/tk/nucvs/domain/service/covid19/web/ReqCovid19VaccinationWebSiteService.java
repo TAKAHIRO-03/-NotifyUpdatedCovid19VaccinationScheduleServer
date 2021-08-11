@@ -1,4 +1,4 @@
-package jp.co.tk.nucvs.domain.service.covid19;
+package jp.co.tk.nucvs.domain.service.covid19.web;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -23,7 +23,7 @@ import lombok.val;
  * @author KOBAYASHI TAKAHIRO
  *
  */
-public interface ReqCovid19VaccinationWebSiteService {
+interface ReqCovid19VaccinationWebSiteService {
 
 	public List<Covid19VaccinationScheduleDTO> request() throws IOException, InterruptedException, URISyntaxException;
 

@@ -7,7 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import jp.co.tk.nucvs.core.CustomModelMapper;
 import jp.co.tk.nucvs.domain.model.Covid19VaccinationScheduleDTO;
 import jp.co.tk.nucvs.domain.service.covid19.Covid19VaccinationScheduleService;
-import jp.co.tk.nucvs.domain.service.covid19.ReqCovid19VaccinationWebSiteService;
 import lombok.val;
 
 @SpringBootTest
@@ -18,9 +17,6 @@ public class ReqLineNotifyServiceTests {
 
     @Autowired
     private CustomModelMapper modelMapper;
-
-    @Autowired
-    private ReqCovid19VaccinationWebSiteService reqVacService;
 
     @Autowired
     private Covid19VaccinationScheduleService covid19vsService;

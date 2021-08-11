@@ -1,4 +1,4 @@
-package jp.co.tk.nucvs.domain.service.covid19;
+package jp.co.tk.nucvs.domain.service.covid19.web;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mockStatic;

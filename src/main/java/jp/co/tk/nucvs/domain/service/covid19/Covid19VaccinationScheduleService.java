@@ -22,8 +22,8 @@ public class Covid19VaccinationScheduleService {
 	private static Log log;
 
     @Transactional
-    public void updateAdachiAvailability(List<Covid19VaccinationSchedule> covid19vsFromWeb) {
-        val covid19vsFromDb = repo.findByCovid19vsOrderByAvaDateAndAvaCnt("足立区");
+    public void updateAll(List<Covid19VaccinationSchedule> covid19vsFromWeb) {
+        val covid19vsFromDb = repo.findAll();
         val diffWebToDb = compareDbAndWeb(covid19vsFromWeb, covid19vsFromDb);
         repo.saveAll(diffWebToDb);
         log.info("Save count is " + diffWebToDb.size());
@@ -31,6 +31,11 @@ public class Covid19VaccinationScheduleService {
         val diffDbToWeb = compareDbAndWeb(covid19vsFromDb, covid19vsFromWeb);
         repo.deleteAll(diffDbToWeb);
         log.info("Delete count is " + diffDbToWeb.size());
+    }
+
+    @Transactional(readOnly = true)
+    public List<Covid19VaccinationSchedule> findAllByOrderByAvailabilityDateAscAvailabilityCountAsc() {
+        return repo.findAllByOrderByAvailabilityDateAscAvailabilityCountAsc();
     }
 
     @Transactional(readOnly = true)

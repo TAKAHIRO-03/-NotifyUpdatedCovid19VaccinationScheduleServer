@@ -1,4 +1,4 @@
-package jp.co.tk.nucvs.domain.service.covid19;
+package jp.co.tk.nucvs.domain.service.covid19.web;
 
 import java.io.IOException;
 import java.net.URI;
@@ -25,8 +25,8 @@ import jp.co.tk.nucvs.domain.repo.Covid19VaccinationVenueRepository;
 import jp.co.tk.nucvs.domain.service.exception.ParseDomException;
 import lombok.val;
 
-@Service
-public class ReqAdachikuServiceImpl implements ReqCovid19VaccinationWebSiteService {
+@Service("ReqAdachikuServiceImpl")
+class ReqAdachikuServiceImpl implements ReqCovid19VaccinationWebSiteService {
 
 	private final Covid19VaccinationVenueRepository repo;
 	private final String URL;

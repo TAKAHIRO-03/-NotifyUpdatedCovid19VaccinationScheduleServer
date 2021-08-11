@@ -7,7 +7,6 @@ import org.springframework.test.context.TestPropertySource;
 
 import jp.co.tk.nucvs.core.CustomModelMapper;
 import jp.co.tk.nucvs.domain.service.covid19.Covid19VaccinationScheduleService;
-import jp.co.tk.nucvs.domain.service.covid19.ReqCovid19VaccinationWebSiteService;
 import jp.co.tk.nucvs.domain.service.line.ReqLineNotifyService;
 import lombok.val;
 
@@ -20,9 +19,6 @@ public class PairCovid19VaccinationScheduleDTOTests {
 
     @Autowired
     private CustomModelMapper modelMapper;
-
-    @Autowired
-    private ReqCovid19VaccinationWebSiteService reqVacService;
 
     @Autowired
     private Covid19VaccinationScheduleService covid19vsService;

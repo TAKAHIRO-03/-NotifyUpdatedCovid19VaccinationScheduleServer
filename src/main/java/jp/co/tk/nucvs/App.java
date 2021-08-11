@@ -20,7 +20,7 @@ import jp.co.tk.nucvs.core.log.LogFactory;
 import jp.co.tk.nucvs.domain.model.Covid19VaccinationSchedule;
 import jp.co.tk.nucvs.domain.model.Covid19VaccinationScheduleDTO;
 import jp.co.tk.nucvs.domain.service.covid19.Covid19VaccinationScheduleService;
-import jp.co.tk.nucvs.domain.service.covid19.ReqCovid19VaccinationWebSiteService;
+import jp.co.tk.nucvs.domain.service.covid19.web.RequestWebSiteService;
 import jp.co.tk.nucvs.domain.service.line.ReqLineNotifyService;
 import lombok.val;
 
@@ -29,7 +29,7 @@ import lombok.val;
 public class App {
 
 	@Autowired
-	private ReqCovid19VaccinationWebSiteService reqCovid19Service;
+	private RequestWebSiteService reqService;
 
 	@Autowired
 	private Covid19VaccinationScheduleService covid19vsService;
@@ -56,7 +56,7 @@ public class App {
 
 		log.info("Start notify you of updates to your Covid19 vaccination appointments.");
 
-		val dtoList = reqCovid19Service.request();
+		val dtoList = reqService.request();
 		if(dtoList.isEmpty()) {
 			log.info("The cron terminated because the data in the website is empty.");
 			return;
@@ -64,9 +64,9 @@ public class App {
 		
 		val modelMapper = modelMapper();
 		val covid19vsFromWeb = modelMapper.mapAll(dtoList, Covid19VaccinationSchedule.class);
-		covid19vsService.updateAdachiAvailability(covid19vsFromWeb);
+		covid19vsService.updateAll(covid19vsFromWeb);
 
-		val covid19vsFromDb = covid19vsService.findByCovid19vsOrderByAvaDateAndAvaCnt("足立区");
+		val covid19vsFromDb = covid19vsService.findAllByOrderByAvailabilityDateAscAvailabilityCountAsc();
 		/**
 		 * モデルナ会場と平日のデータは削除する。
 		 */
