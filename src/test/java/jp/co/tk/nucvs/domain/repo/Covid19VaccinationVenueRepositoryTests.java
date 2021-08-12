@@ -1,29 +1,31 @@
 package jp.co.tk.nucvs.domain.repo;
 
-import org.junit.jupiter.api.BeforeEach;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import com.github.springtestdbunit.annotation.DatabaseOperation;
+import com.github.springtestdbunit.annotation.DatabaseSetup;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 
 import lombok.val;
 
 @SpringBootTest
+@TestPropertySource("classpath:application-test.properties")
 public class Covid19VaccinationVenueRepositoryTests {
 
     @Autowired
     Covid19VaccinationVenueRepository repo;
-
-    @BeforeEach
-	void 関数実行前() {
-
-    }
+    
+    private final String BACK_UP_FILE_PATH = "/dbunit/backup.xml";
 
     @Test
+    @DatabaseSetup(value =  BACK_UP_FILE_PATH, type = DatabaseOperation.CLEAN_INSERT)
 	void 実行確認() throws Exception {
-        val result = repo.findAll();
-        val result2 = result.get(0).getCovid19VaccinationSchedule();
-        val result3 = result.get(0).getCovid19VaccinationSchedule();
-        repo.deleteById(94);
+        val actual = repo.findAll();
+        assertEquals(100, actual.size());
     }
     
 }

@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <user_info id="1" line_notify_token="PDjmXcmFeET08ltQNTkPAxqKt0bzEdbyTfbhVAxpcbl" covid19_vaccination_url="https://adachi.hbf-rsv.jp/" city_name="足立区" created_time="2021-08-11 19:01:56.714285" updated_time="2021-08-11 19:01:56.714285"/>
+  <covid19_vaccination_venue id="1" region="東京" city="足立区" area="舎人地区" venue="足立入谷小学校"/>
+  <covid19_vaccination_venue id="2" region="東京" city="足立区" area="舎人地区" venue="入谷中学校"/>
+  <covid19_vaccination_venue id="3" region="東京" city="足立区" area="舎人地区" venue="入谷南中学校"/>
+  <covid19_vaccination_venue id="4" region="東京" city="足立区" area="舎人地区" venue="舎人第一小学校"/>
+  <covid19_vaccination_venue id="5" region="東京" city="足立区" area="鹿浜地区" venue="北鹿浜小学校"/>
+  <covid19_vaccination_venue id="6" region="東京" city="足立区" area="鹿浜地区" venue="皿沼小学校"/>
+  <covid19_vaccination_venue id="7" region="東京" city="足立区" area="鹿浜地区" venue="鹿浜第一小学校"/>
+  <covid19_vaccination_venue id="8" region="東京" city="足立区" area="鹿浜地区" venue="鹿浜いきいき館"/>
+  <covid19_vaccination_venue id="9" region="東京" city="足立区" area="鹿浜地区" venue="博慈会記念総合病院別館"/>
+  <covid19_vaccination_venue id="10" region="東京" city="足立区" area="伊興地区" venue="伊興中学校"/>
+  <covid19_vaccination_venue id="11" region="東京" city="足立区" area="伊興地区" venue="伊興小学校"/>
+  <covid19_vaccination_venue id="12" region="東京" city="足立区" area="伊興地区" venue="古千谷小学校"/>
+  <covid19_vaccination_venue id="13" region="東京" city="足立区" area="伊興地区" venue="伊興地域体育館"/>
+  <covid19_vaccination_venue id="14" region="東京" city="足立区" area="伊興地区" venue="第十四中学校"/>
+  <covid19_vaccination_venue id="15" region="東京" city="足立区" area="伊興地区" venue="東伊興小学校"/>
+  <covid19_vaccination_venue id="16" region="東京" city="足立区" area="伊興地区" venue="西伊興小学校"/>
+  <covid19_vaccination_venue id="17" region="東京" city="足立区" area="西新井地区" venue="栗原北小学校"/>
+  <covid19_vaccination_venue id="18" region="東京" city="足立区" area="西新井地区" venue="西新井中学校"/>
+  <covid19_vaccination_venue id="19" region="東京" city="足立区" area="西新井地区" venue="西新井第一小学校"/>
+  <covid19_vaccination_venue id="20" region="東京" city="足立区" area="西新井地区" venue="西新井第二小学校"/>
+  <covid19_vaccination_venue id="21" region="東京" city="足立区" area="西新井地区" venue="西新井病院附属成和クリニック"/>
+  <covid19_vaccination_venue id="22" region="東京" city="足立区" area="竹の塚地区" venue="島根小学校"/>
+  <covid19_vaccination_venue id="23" region="東京" city="足立区" area="竹の塚地区" venue="竹の塚中学校"/>
+  <covid19_vaccination_venue id="24" region="東京" city="足立区" area="竹の塚地区" venue="中島根小学校"/>
+  <covid19_vaccination_venue id="25" region="東京" city="足立区" area="竹の塚地区" venue="西保木間小学校"/>
+  <covid19_vaccination_venue id="26" region="東京" city="足立区" area="竹の塚地区" venue="渕江小学校"/>
+  <covid19_vaccination_venue id="27" region="東京" city="足立区" area="竹の塚地区" venue="保木間小学校"/>
+  <covid19_vaccination_venue id="28" region="東京" city="足立区" area="竹の塚地区" venue="スイムスポーツセンター"/>
+  <covid19_vaccination_venue id="29" region="東京" city="足立区" area="花畑地区" venue="桜花小学校"/>
+  <covid19_vaccination_venue id="30" region="東京" city="足立区" area="花畑地区" venue="花畑小学校"/>
+  <covid19_vaccination_venue id="31" region="東京" city="足立区" area="花畑地区" venue="花畑第一小学校"/>
+  <covid19_vaccination_venue id="32" region="東京" city="足立区" area="花畑地区" venue="花畑西小学校"/>
+  <covid19_vaccination_venue id="33" region="東京" city="足立区" area="花畑地区" venue="花畑地域体育館"/>
+  <covid19_vaccination_venue id="34" region="東京" city="足立区" area="保塚地区" venue="加平小学校"/>
+  <covid19_vaccination_venue id="35" region="東京" city="足立区" area="保塚地区" venue="花保小学校"/>
+  <covid19_vaccination_venue id="36" region="東京" city="足立区" area="保塚地区" venue="花保中学校"/>
+  <covid19_vaccination_venue id="37" region="東京" city="足立区" area="保塚地区" venue="東栗原小学校"/>
+  <covid19_vaccination_venue id="38" region="東京" city="足立区" area="保塚地区" venue="東島根中学校"/>
+  <covid19_vaccination_venue id="39" region="東京" city="足立区" area="保塚地区" venue="平野小学校"/>
+  <covid19_vaccination_venue id="40" region="東京" city="足立区" area="保塚地区" venue="渕江中学校"/>
+  <covid19_vaccination_venue id="41" region="東京" city="足立区" area="保塚地区" venue="渕江第一小学校"/>
+  <covid19_vaccination_venue id="42" region="東京" city="足立区" area="中川地区" venue="大谷田小学校"/>
+  <covid19_vaccination_venue id="43" region="東京" city="足立区" area="中川地区" venue="第十三中学校"/>
+  <covid19_vaccination_venue id="44" region="東京" city="足立区" area="中川地区" venue="第十二中学校"/>
+  <covid19_vaccination_venue id="45" region="東京" city="足立区" area="中川地区" venue="辰沼小学校"/>
+  <covid19_vaccination_venue id="46" region="東京" city="足立区" area="中川地区" venue="中川小学校"/>
+  <covid19_vaccination_venue id="47" region="東京" city="足立区" area="中川地区" venue="中川北小学校"/>
+  <covid19_vaccination_venue id="48" region="東京" city="足立区" area="中川地区" venue="中川東小学校"/>
+  <covid19_vaccination_venue id="49" region="東京" city="足立区" area="中川地区" venue="長門小学校"/>
+  <covid19_vaccination_venue id="50" region="東京" city="足立区" area="中川地区" venue="六木小学校"/>
+  <covid19_vaccination_venue id="51" region="東京" city="足立区" area="綾瀬地区" venue="綾瀬小学校"/>
+  <covid19_vaccination_venue id="52" region="東京" city="足立区" area="綾瀬地区" venue="蒲原中学校"/>
+  <covid19_vaccination_venue id="53" region="東京" city="足立区" area="綾瀬地区" venue="北三谷小学校"/>
+  <covid19_vaccination_venue id="54" region="東京" city="足立区" area="綾瀬地区" venue="東綾瀬小学校"/>
+  <covid19_vaccination_venue id="55" region="東京" city="足立区" area="綾瀬地区" venue="東綾瀬中学校"/>
+  <covid19_vaccination_venue id="56" region="東京" city="足立区" area="綾瀬地区" venue="東加平小学校"/>
+  <covid19_vaccination_venue id="57" region="東京" city="足立区" area="綾瀬地区" venue="東渕江小学校"/>
+  <covid19_vaccination_venue id="58" region="東京" city="足立区" area="綾瀬地区" venue="東和地域体育館"/>
+  <covid19_vaccination_venue id="59" region="東京" city="足立区" area="中央本町地区" venue="青井中学校"/>
+  <covid19_vaccination_venue id="60" region="東京" city="足立区" area="中央本町地区" venue="青井小学校"/>
+  <covid19_vaccination_venue id="61" region="東京" city="足立区" area="中央本町地区" venue="足立小学校"/>
+  <covid19_vaccination_venue id="62" region="東京" city="足立区" area="中央本町地区" venue="栗島中学校"/>
+  <covid19_vaccination_venue id="63" region="東京" city="足立区" area="中央本町地区" venue="栗島小学校"/>
+  <covid19_vaccination_venue id="64" region="東京" city="足立区" area="中央本町地区" venue="弘道小学校"/>
+  <covid19_vaccination_venue id="65" region="東京" city="足立区" area="中央本町地区" venue="弘道第一小学校"/>
+  <covid19_vaccination_venue id="66" region="東京" city="足立区" area="中央本町地区" venue="第十一中学校"/>
+  <covid19_vaccination_venue id="67" region="東京" city="足立区" area="中央本町地区" venue="弥生小学校"/>
+  <covid19_vaccination_venue id="68" region="東京" city="足立区" area="中央本町地区" venue="中央本町地域体育館"/>
+  <covid19_vaccination_venue id="69" region="東京" city="足立区" area="中央本町地区" venue="足立区役所モデルナ接種会場（庁舎ホール）"/>
+  <covid19_vaccination_venue id="70" region="東京" city="足立区" area="梅田地区・梅島地区・関原地区" venue="梅島小学校"/>
+  <covid19_vaccination_venue id="71" region="東京" city="足立区" area="梅田地区・梅島地区・関原地区" venue="梅島第一小学校"/>
+  <covid19_vaccination_venue id="72" region="東京" city="足立区" area="梅田地区・梅島地区・関原地区" venue="梅島第二小学校"/>
+  <covid19_vaccination_venue id="73" region="東京" city="足立区" area="梅田地区・梅島地区・関原地区" venue="亀田小学校"/>
+  <covid19_vaccination_venue id="74" region="東京" city="足立区" area="梅田地区・梅島地区・関原地区" venue="栗原小学校"/>
+  <covid19_vaccination_venue id="75" region="東京" city="足立区" area="梅田地区・梅島地区・関原地区" venue="関原小学校"/>
+  <covid19_vaccination_venue id="76" region="東京" city="足立区" area="梅田地区・梅島地区・関原地区" venue="第九中学校"/>
+  <covid19_vaccination_venue id="77" region="東京" city="足立区" area="梅田地区・梅島地区・関原地区" venue="第十中学校"/>
+  <covid19_vaccination_venue id="78" region="東京" city="足立区" area="梅田地区・梅島地区・関原地区" venue="第七中学校"/>
+  <covid19_vaccination_venue id="79" region="東京" city="足立区" area="梅田地区・梅島地区・関原地区" venue="梅田地域体育館"/>
+  <covid19_vaccination_venue id="80" region="東京" city="足立区" area="本木地区・扇地区" venue="興本（興本扇学園）小学校"/>
+  <covid19_vaccination_venue id="81" region="東京" city="足立区" area="本木地区・扇地区" venue="第六中学校"/>
+  <covid19_vaccination_venue id="82" region="東京" city="足立区" area="本木地区・扇地区" venue="寺地小学校"/>
+  <covid19_vaccination_venue id="83" region="東京" city="足立区" area="本木地区・扇地区" venue="西新井小学校"/>
+  <covid19_vaccination_venue id="84" region="東京" city="足立区" area="本木地区・扇地区" venue="本木小学校"/>
+  <covid19_vaccination_venue id="85" region="東京" city="足立区" area="本木地区・扇地区" venue="興本地域体育館"/>
+  <covid19_vaccination_venue id="86" region="東京" city="足立区" area="新田地区・江北地区・宮城地区" venue="扇小学校"/>
+  <covid19_vaccination_venue id="87" region="東京" city="足立区" area="新田地区・江北地区・宮城地区" venue="江北桜中学校"/>
+  <covid19_vaccination_venue id="88" region="東京" city="足立区" area="新田地区・江北地区・宮城地区" venue="高野小学校"/>
+  <covid19_vaccination_venue id="89" region="東京" city="足立区" area="新田地区・江北地区・宮城地区" venue="新田学園小学校"/>
+  <covid19_vaccination_venue id="90" region="東京" city="足立区" area="新田地区・江北地区・宮城地区" venue="宮城小学校"/>
+  <covid19_vaccination_venue id="91" region="東京" city="足立区" area="新田地区・江北地区・宮城地区" venue="新田地域学習センター"/>
+  <covid19_vaccination_venue id="92" region="東京" city="足立区" area="新田地区・江北地区・宮城地区" venue="江北地域体育館"/>
+  <covid19_vaccination_venue id="93" region="東京" city="足立区" area="千住地区" venue="千寿小学校"/>
+  <covid19_vaccination_venue id="95" region="東京" city="足立区" area="千住地区" venue="千寿第八小学校"/>
+  <covid19_vaccination_venue id="96" region="東京" city="足立区" area="千住地区" venue="千寿常東小学校"/>
+  <covid19_vaccination_venue id="97" region="東京" city="足立区" area="千住地区" venue="千寿双葉小学校"/>
+  <covid19_vaccination_venue id="98" region="東京" city="足立区" area="千住地区" venue="千寿本町小学校"/>
+  <covid19_vaccination_venue id="99" region="東京" city="足立区" area="千住地区" venue="第一中学校"/>
+  <covid19_vaccination_venue id="100" region="東京" city="足立区" area="千住地区" venue="生涯学習センター（学びピア２１内）"/>
+  <covid19_vaccination_venue id="101" region="東京" city="足立区" area="千住地区" venue="東京電機大学（東京千住キャンパス）"/>
+  <covid19_vaccination_schedule id="13" covid19_vaccination_venue_id="92" availability_date="2021-10-21" availability_count="265" created_time="2021-08-11 19:08:08.346" updated_time="2021-08-11 19:08:08.346"/>
+  <covid19_vaccination_schedule id="28" covid19_vaccination_venue_id="92" availability_date="2021-10-29" availability_count="167" created_time="2021-08-11 19:08:08.366" updated_time="2021-08-11 19:08:08.366"/>
+  <covid19_vaccination_schedule id="42" covid19_vaccination_venue_id="33" availability_date="2021-10-21" availability_count="261" created_time="2021-08-11 19:36:08.231" updated_time="2021-08-11 19:36:08.231"/>
+  <covid19_vaccination_schedule id="59" covid19_vaccination_venue_id="101" availability_date="2021-10-27" availability_count="200" created_time="2021-08-11 19:44:07.155" updated_time="2021-08-11 19:44:07.155"/>
+  <covid19_vaccination_schedule id="70" covid19_vaccination_venue_id="69" availability_date="2021-09-27" availability_count="1" created_time="2021-08-13 00:30:37.877" updated_time="2021-08-13 00:30:37.877"/>
+  <covid19_vaccination_schedule id="71" covid19_vaccination_venue_id="69" availability_date="2021-09-28" availability_count="18" created_time="2021-08-13 00:30:37.892" updated_time="2021-08-13 00:30:37.892"/>
+  <covid19_vaccination_schedule id="72" covid19_vaccination_venue_id="101" availability_date="2021-10-20" availability_count="86" created_time="2021-08-13 00:30:37.893" updated_time="2021-08-13 00:30:37.893"/>
+  <covid19_vaccination_schedule id="73" covid19_vaccination_venue_id="33" availability_date="2021-10-20" availability_count="202" created_time="2021-08-13 00:30:37.895" updated_time="2021-08-13 00:30:37.895"/>
+  <covid19_vaccination_schedule id="74" covid19_vaccination_venue_id="92" availability_date="2021-10-20" availability_count="211" created_time="2021-08-13 00:30:37.896" updated_time="2021-08-13 00:30:37.896"/>
+  <covid19_vaccination_schedule id="75" covid19_vaccination_venue_id="101" availability_date="2021-10-21" availability_count="230" created_time="2021-08-13 00:30:37.898" updated_time="2021-08-13 00:30:37.898"/>
+  <covid19_vaccination_schedule id="76" covid19_vaccination_venue_id="101" availability_date="2021-10-22" availability_count="23" created_time="2021-08-13 00:30:37.899" updated_time="2021-08-13 00:30:37.901"/>
+  <covid19_vaccination_schedule id="77" covid19_vaccination_venue_id="33" availability_date="2021-10-22" availability_count="89" created_time="2021-08-13 00:30:37.902" updated_time="2021-08-13 00:30:37.902"/>
+  <covid19_vaccination_schedule id="78" covid19_vaccination_venue_id="92" availability_date="2021-10-22" availability_count="124" created_time="2021-08-13 00:30:37.903" updated_time="2021-08-13 00:30:37.903"/>
+  <covid19_vaccination_schedule id="79" covid19_vaccination_venue_id="101" availability_date="2021-10-24" availability_count="89" created_time="2021-08-13 00:30:37.904" updated_time="2021-08-13 00:30:37.904"/>
+  <covid19_vaccination_schedule id="80" covid19_vaccination_venue_id="33" availability_date="2021-10-24" availability_count="133" created_time="2021-08-13 00:30:37.905" updated_time="2021-08-13 00:30:37.905"/>
+  <covid19_vaccination_schedule id="81" covid19_vaccination_venue_id="92" availability_date="2021-10-24" availability_count="179" created_time="2021-08-13 00:30:37.906" updated_time="2021-08-13 00:30:37.906"/>
+  <covid19_vaccination_schedule id="82" covid19_vaccination_venue_id="33" availability_date="2021-10-27" availability_count="226" created_time="2021-08-13 00:30:37.907" updated_time="2021-08-13 00:30:37.907"/>
+  <covid19_vaccination_schedule id="83" covid19_vaccination_venue_id="92" availability_date="2021-10-27" availability_count="245" created_time="2021-08-13 00:30:37.908" updated_time="2021-08-13 00:30:37.908"/>
+  <covid19_vaccination_schedule id="84" covid19_vaccination_venue_id="101" availability_date="2021-10-28" availability_count="106" created_time="2021-08-13 00:30:37.909" updated_time="2021-08-13 00:30:37.909"/>
+  <covid19_vaccination_schedule id="85" covid19_vaccination_venue_id="33" availability_date="2021-10-28" availability_count="131" created_time="2021-08-13 00:30:37.911" updated_time="2021-08-13 00:30:37.911"/>
+  <covid19_vaccination_schedule id="86" covid19_vaccination_venue_id="92" availability_date="2021-10-28" availability_count="168" created_time="2021-08-13 00:30:37.912" updated_time="2021-08-13 00:30:37.912"/>
+  <covid19_vaccination_schedule id="87" covid19_vaccination_venue_id="101" availability_date="2021-10-29" availability_count="113" created_time="2021-08-13 00:30:37.913" updated_time="2021-08-13 00:30:37.913"/>
+  <covid19_vaccination_schedule id="88" covid19_vaccination_venue_id="33" availability_date="2021-10-29" availability_count="162" created_time="2021-08-13 00:30:37.914" updated_time="2021-08-13 00:30:37.914"/>
+  <covid19_vaccination_schedule id="89" covid19_vaccination_venue_id="101" availability_date="2021-10-30" availability_count="82" created_time="2021-08-13 00:30:37.915" updated_time="2021-08-13 00:30:37.915"/>
+  <covid19_vaccination_schedule id="90" covid19_vaccination_venue_id="33" availability_date="2021-10-30" availability_count="118" created_time="2021-08-13 00:30:37.915" updated_time="2021-08-13 00:30:37.915"/>
+  <covid19_vaccination_schedule id="91" covid19_vaccination_venue_id="92" availability_date="2021-10-30" availability_count="175" created_time="2021-08-13 00:30:37.916" updated_time="2021-08-13 00:30:37.916"/>
+  <covid19_vaccination_schedule id="92" covid19_vaccination_venue_id="101" availability_date="2021-10-31" availability_count="205" created_time="2021-08-13 00:30:37.917" updated_time="2021-08-13 00:30:37.917"/>
+  <covid19_vaccination_schedule id="93" covid19_vaccination_venue_id="33" availability_date="2021-10-31" availability_count="225" created_time="2021-08-13 00:30:37.918" updated_time="2021-08-13 00:30:37.918"/>
+  <covid19_vaccination_schedule id="94" covid19_vaccination_venue_id="92" availability_date="2021-10-31" availability_count="228" created_time="2021-08-13 00:30:37.919" updated_time="2021-08-13 00:30:37.919"/>
+</dataset>

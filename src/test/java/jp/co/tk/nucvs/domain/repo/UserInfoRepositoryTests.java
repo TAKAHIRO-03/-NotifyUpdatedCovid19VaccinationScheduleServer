@@ -1,6 +1,10 @@
 package jp.co.tk.nucvs.domain.repo;
 
-import org.junit.jupiter.api.BeforeEach;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import com.github.springtestdbunit.annotation.DatabaseOperation;
+import com.github.springtestdbunit.annotation.DatabaseSetup;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,15 +19,13 @@ public class UserInfoRepositoryTests {
     @Autowired
     UserInfoRepository repo;
 
-    @BeforeEach
-	void 関数実行前() {
-
-    }
+    private final String BACK_UP_FILE_PATH = "/dbunit/backup.xml";
 
     @Test
+    @DatabaseSetup(value =  BACK_UP_FILE_PATH, type = DatabaseOperation.CLEAN_INSERT)
 	void 実行確認() throws Exception {
-        val result = repo.findAll();
-        System.out.println(result);
+        val actual = repo.findAll();
+        assertEquals(1, actual.size());
     }
     
 }
