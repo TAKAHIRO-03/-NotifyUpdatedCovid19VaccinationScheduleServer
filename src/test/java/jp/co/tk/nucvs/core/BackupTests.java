@@ -10,6 +10,7 @@ import javax.sql.DataSource;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.QueryDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -27,6 +28,7 @@ public class BackupTests {
     private final String BACK_UP_FILE_PATH = "src/test/resouces/dbunit/backup.xml";
 
     @Test
+    @Disabled
     void 正常にバックアップが作成出来るか() throws Exception {
         val con = new DatabaseConnection(dataSource.getConnection());
         val queryDataSet = new QueryDataSet(con);

@@ -25,7 +25,7 @@ public class Covid19VaccinationVenueRepositoryTests {
     @DatabaseSetup(value =  BACK_UP_FILE_PATH, type = DatabaseOperation.CLEAN_INSERT)
 	void 実行確認() throws Exception {
         val actual = repo.findAll();
-        assertEquals(100, actual.size());
+        assertEquals(101, actual.size());
     }
     
 }
