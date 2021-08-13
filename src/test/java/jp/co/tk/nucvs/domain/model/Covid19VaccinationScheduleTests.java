@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -32,7 +33,13 @@ public class Covid19VaccinationScheduleTests extends RevisionInfo implements Ser
 
     @Test
     void idとcreated_timeとupdated_timeの値が異なっていてそれ以外は同じ値の時equalsメソッドがtrueを返却するか() throws Exception {
-        val o1 = scheRepo.findAll().get(0);
+        val o1 = new Covid19VaccinationSchedule();
+        o1.setId(1);
+        o1.setAvailabilityDate(LocalDate.parse("2021-08-11", DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        o1.setAvailabilityCount(1);
+        o1.setCovid19VaccinationVenue(venueRepo.findById(28).get());
+        o1.setCreatedTime(new Date());
+        o1.setUpdatedTime(new Date());
 
         val o2 = new Covid19VaccinationSchedule();
         o2.setAvailabilityDate(LocalDate.parse("2021-08-11", DateTimeFormatter.ofPattern("yyyy-MM-dd")));

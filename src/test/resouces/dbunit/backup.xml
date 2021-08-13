@@ -101,33 +101,33 @@
   <covid19_vaccination_venue id="99" region="東京" city="足立区" area="千住地区" venue="第一中学校"/>
   <covid19_vaccination_venue id="100" region="東京" city="足立区" area="千住地区" venue="生涯学習センター（学びピア２１内）"/>
   <covid19_vaccination_venue id="101" region="東京" city="足立区" area="千住地区" venue="東京電機大学（東京千住キャンパス）"/>
+  <covid19_vaccination_schedule id="95" covid19_vaccination_venue_id="69" availability_date="2021-09-28" availability_count="13" created_time="2021-08-13 10:47:21.608" updated_time="2021-08-13 10:47:21.608"/>
+  <covid19_vaccination_schedule id="96" covid19_vaccination_venue_id="101" availability_date="2021-10-20" availability_count="73" created_time="2021-08-13 10:47:21.68" updated_time="2021-08-13 10:47:21.68"/>
+  <covid19_vaccination_schedule id="97" covid19_vaccination_venue_id="33" availability_date="2021-10-20" availability_count="200" created_time="2021-08-13 10:47:21.684" updated_time="2021-08-13 10:47:21.684"/>
+  <covid19_vaccination_schedule id="99" covid19_vaccination_venue_id="101" availability_date="2021-10-21" availability_count="231" created_time="2021-08-13 10:47:21.695" updated_time="2021-08-13 10:47:21.695"/>
+  <covid19_vaccination_schedule id="100" covid19_vaccination_venue_id="101" availability_date="2021-10-22" availability_count="18" created_time="2021-08-13 10:47:21.701" updated_time="2021-08-13 10:47:21.701"/>
+  <covid19_vaccination_schedule id="101" covid19_vaccination_venue_id="92" availability_date="2021-10-22" availability_count="121" created_time="2021-08-13 10:47:21.71" updated_time="2021-08-13 10:47:21.71"/>
+  <covid19_vaccination_schedule id="102" covid19_vaccination_venue_id="101" availability_date="2021-10-24" availability_count="84" created_time="2021-08-13 10:47:21.714" updated_time="2021-08-13 10:47:21.714"/>
+  <covid19_vaccination_schedule id="104" covid19_vaccination_venue_id="92" availability_date="2021-10-24" availability_count="178" created_time="2021-08-13 10:47:21.72" updated_time="2021-08-13 10:47:21.72"/>
+  <covid19_vaccination_schedule id="105" covid19_vaccination_venue_id="101" availability_date="2021-10-27" availability_count="201" created_time="2021-08-13 10:47:21.724" updated_time="2021-08-13 10:47:21.724"/>
+  <covid19_vaccination_schedule id="106" covid19_vaccination_venue_id="33" availability_date="2021-10-27" availability_count="227" created_time="2021-08-13 10:47:21.726" updated_time="2021-08-13 10:47:21.726"/>
+  <covid19_vaccination_schedule id="107" covid19_vaccination_venue_id="33" availability_date="2021-10-28" availability_count="133" created_time="2021-08-13 10:47:21.73" updated_time="2021-08-13 10:47:21.73"/>
+  <covid19_vaccination_schedule id="108" covid19_vaccination_venue_id="92" availability_date="2021-10-28" availability_count="167" created_time="2021-08-13 10:47:21.733" updated_time="2021-08-13 10:47:21.733"/>
+  <covid19_vaccination_schedule id="109" covid19_vaccination_venue_id="101" availability_date="2021-10-29" availability_count="111" created_time="2021-08-13 10:47:21.736" updated_time="2021-08-13 10:47:21.736"/>
+  <covid19_vaccination_schedule id="110" covid19_vaccination_venue_id="101" availability_date="2021-10-30" availability_count="78" created_time="2021-08-13 10:47:21.742" updated_time="2021-08-13 10:47:21.742"/>
+  <covid19_vaccination_schedule id="111" covid19_vaccination_venue_id="33" availability_date="2021-10-30" availability_count="119" created_time="2021-08-13 10:47:21.746" updated_time="2021-08-13 10:47:21.746"/>
+  <covid19_vaccination_schedule id="112" covid19_vaccination_venue_id="92" availability_date="2021-10-30" availability_count="176" created_time="2021-08-13 10:47:21.749" updated_time="2021-08-13 10:47:21.749"/>
+  <covid19_vaccination_schedule id="113" covid19_vaccination_venue_id="92" availability_date="2021-10-31" availability_count="227" created_time="2021-08-13 10:47:21.754" updated_time="2021-08-13 10:47:21.754"/>
+  <covid19_vaccination_schedule id="114" covid19_vaccination_venue_id="49" availability_date="2021-08-28" availability_count="1" created_time="2021-08-13 10:52:18.211" updated_time="2021-08-13 10:52:18.211"/>
+  <covid19_vaccination_schedule id="115" covid19_vaccination_venue_id="92" availability_date="2021-10-20" availability_count="204" created_time="2021-08-13 10:52:18.274" updated_time="2021-08-13 10:52:18.274"/>
+  <covid19_vaccination_schedule id="116" covid19_vaccination_venue_id="33" availability_date="2021-10-24" availability_count="128" created_time="2021-08-13 10:52:18.291" updated_time="2021-08-13 10:52:18.291"/>
+  <covid19_vaccination_schedule id="117" covid19_vaccination_venue_id="101" availability_date="2021-10-31" availability_count="204" created_time="2021-08-13 10:52:18.297" updated_time="2021-08-13 10:52:18.297"/>
   <covid19_vaccination_schedule id="13" covid19_vaccination_venue_id="92" availability_date="2021-10-21" availability_count="265" created_time="2021-08-11 19:08:08.346" updated_time="2021-08-11 19:08:08.346"/>
   <covid19_vaccination_schedule id="28" covid19_vaccination_venue_id="92" availability_date="2021-10-29" availability_count="167" created_time="2021-08-11 19:08:08.366" updated_time="2021-08-11 19:08:08.366"/>
   <covid19_vaccination_schedule id="42" covid19_vaccination_venue_id="33" availability_date="2021-10-21" availability_count="261" created_time="2021-08-11 19:36:08.231" updated_time="2021-08-11 19:36:08.231"/>
-  <covid19_vaccination_schedule id="59" covid19_vaccination_venue_id="101" availability_date="2021-10-27" availability_count="200" created_time="2021-08-11 19:44:07.155" updated_time="2021-08-11 19:44:07.155"/>
-  <covid19_vaccination_schedule id="70" covid19_vaccination_venue_id="69" availability_date="2021-09-27" availability_count="1" created_time="2021-08-13 00:30:37.877" updated_time="2021-08-13 00:30:37.877"/>
-  <covid19_vaccination_schedule id="71" covid19_vaccination_venue_id="69" availability_date="2021-09-28" availability_count="18" created_time="2021-08-13 00:30:37.892" updated_time="2021-08-13 00:30:37.892"/>
-  <covid19_vaccination_schedule id="72" covid19_vaccination_venue_id="101" availability_date="2021-10-20" availability_count="86" created_time="2021-08-13 00:30:37.893" updated_time="2021-08-13 00:30:37.893"/>
-  <covid19_vaccination_schedule id="73" covid19_vaccination_venue_id="33" availability_date="2021-10-20" availability_count="202" created_time="2021-08-13 00:30:37.895" updated_time="2021-08-13 00:30:37.895"/>
-  <covid19_vaccination_schedule id="74" covid19_vaccination_venue_id="92" availability_date="2021-10-20" availability_count="211" created_time="2021-08-13 00:30:37.896" updated_time="2021-08-13 00:30:37.896"/>
-  <covid19_vaccination_schedule id="75" covid19_vaccination_venue_id="101" availability_date="2021-10-21" availability_count="230" created_time="2021-08-13 00:30:37.898" updated_time="2021-08-13 00:30:37.898"/>
-  <covid19_vaccination_schedule id="76" covid19_vaccination_venue_id="101" availability_date="2021-10-22" availability_count="23" created_time="2021-08-13 00:30:37.899" updated_time="2021-08-13 00:30:37.901"/>
   <covid19_vaccination_schedule id="77" covid19_vaccination_venue_id="33" availability_date="2021-10-22" availability_count="89" created_time="2021-08-13 00:30:37.902" updated_time="2021-08-13 00:30:37.902"/>
-  <covid19_vaccination_schedule id="78" covid19_vaccination_venue_id="92" availability_date="2021-10-22" availability_count="124" created_time="2021-08-13 00:30:37.903" updated_time="2021-08-13 00:30:37.903"/>
-  <covid19_vaccination_schedule id="79" covid19_vaccination_venue_id="101" availability_date="2021-10-24" availability_count="89" created_time="2021-08-13 00:30:37.904" updated_time="2021-08-13 00:30:37.904"/>
-  <covid19_vaccination_schedule id="80" covid19_vaccination_venue_id="33" availability_date="2021-10-24" availability_count="133" created_time="2021-08-13 00:30:37.905" updated_time="2021-08-13 00:30:37.905"/>
-  <covid19_vaccination_schedule id="81" covid19_vaccination_venue_id="92" availability_date="2021-10-24" availability_count="179" created_time="2021-08-13 00:30:37.906" updated_time="2021-08-13 00:30:37.906"/>
-  <covid19_vaccination_schedule id="82" covid19_vaccination_venue_id="33" availability_date="2021-10-27" availability_count="226" created_time="2021-08-13 00:30:37.907" updated_time="2021-08-13 00:30:37.907"/>
   <covid19_vaccination_schedule id="83" covid19_vaccination_venue_id="92" availability_date="2021-10-27" availability_count="245" created_time="2021-08-13 00:30:37.908" updated_time="2021-08-13 00:30:37.908"/>
   <covid19_vaccination_schedule id="84" covid19_vaccination_venue_id="101" availability_date="2021-10-28" availability_count="106" created_time="2021-08-13 00:30:37.909" updated_time="2021-08-13 00:30:37.909"/>
-  <covid19_vaccination_schedule id="85" covid19_vaccination_venue_id="33" availability_date="2021-10-28" availability_count="131" created_time="2021-08-13 00:30:37.911" updated_time="2021-08-13 00:30:37.911"/>
-  <covid19_vaccination_schedule id="86" covid19_vaccination_venue_id="92" availability_date="2021-10-28" availability_count="168" created_time="2021-08-13 00:30:37.912" updated_time="2021-08-13 00:30:37.912"/>
-  <covid19_vaccination_schedule id="87" covid19_vaccination_venue_id="101" availability_date="2021-10-29" availability_count="113" created_time="2021-08-13 00:30:37.913" updated_time="2021-08-13 00:30:37.913"/>
   <covid19_vaccination_schedule id="88" covid19_vaccination_venue_id="33" availability_date="2021-10-29" availability_count="162" created_time="2021-08-13 00:30:37.914" updated_time="2021-08-13 00:30:37.914"/>
-  <covid19_vaccination_schedule id="89" covid19_vaccination_venue_id="101" availability_date="2021-10-30" availability_count="82" created_time="2021-08-13 00:30:37.915" updated_time="2021-08-13 00:30:37.915"/>
-  <covid19_vaccination_schedule id="90" covid19_vaccination_venue_id="33" availability_date="2021-10-30" availability_count="118" created_time="2021-08-13 00:30:37.915" updated_time="2021-08-13 00:30:37.915"/>
-  <covid19_vaccination_schedule id="91" covid19_vaccination_venue_id="92" availability_date="2021-10-30" availability_count="175" created_time="2021-08-13 00:30:37.916" updated_time="2021-08-13 00:30:37.916"/>
-  <covid19_vaccination_schedule id="92" covid19_vaccination_venue_id="101" availability_date="2021-10-31" availability_count="205" created_time="2021-08-13 00:30:37.917" updated_time="2021-08-13 00:30:37.917"/>
   <covid19_vaccination_schedule id="93" covid19_vaccination_venue_id="33" availability_date="2021-10-31" availability_count="225" created_time="2021-08-13 00:30:37.918" updated_time="2021-08-13 00:30:37.918"/>
-  <covid19_vaccination_schedule id="94" covid19_vaccination_venue_id="92" availability_date="2021-10-31" availability_count="228" created_time="2021-08-13 00:30:37.919" updated_time="2021-08-13 00:30:37.919"/>
 </dataset>

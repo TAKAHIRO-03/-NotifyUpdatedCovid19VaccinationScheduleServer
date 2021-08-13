@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.TestPropertySource;
+import org.springframework.transaction.annotation.Transactional;
 
 import jp.co.tk.nucvs.domain.repo.Covid19VaccinationScheduleRepository;
 import lombok.val;
@@ -35,6 +36,7 @@ public class Covid19VaccinationScheduleServiceTests {
 
     @Test
     @DatabaseSetup(value = BACK_UP_FILE_PATH,  type = DatabaseOperation.CLEAN_INSERT)
+    @Transactional
     void 実行確認() throws Exception {
         val covid19vsFromDb = repo.findAllByOrderByAvailabilityDateAscAvailabilityCountAsc();
         doReturn(List.of(covid19vsFromDb.get(0))).when(repo).findAllByOrderByAvailabilityDateAscAvailabilityCountAsc();
