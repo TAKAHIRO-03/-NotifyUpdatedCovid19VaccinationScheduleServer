@@ -55,7 +55,7 @@ public class ReqAdachikuServiceImplTests {
                 method.invoke(service);
             }).thenReturn(ZonedDateTime.of(Integer.valueOf(ymd.substring(0, 4)), Integer.valueOf(ymd.substring(4, 6)),
                     Integer.valueOf(ymd.substring(6, 8)), 0, 0, 0, 0, zoneId));
-            val path = "src/test/resouces/2021_08_adachi.html";
+            val path = "src/test/resources/2021_08_adachi.html";
             val doc = Jsoup.parse(new File(path), "UTF-8");
             val venueListFromDb = repo.findByCity("足立区");
             val dtoList = new ArrayList<Covid19VaccinationScheduleDTO>();
@@ -82,7 +82,7 @@ public class ReqAdachikuServiceImplTests {
                 method.invoke(service);
             }).thenReturn(ZonedDateTime.of(Integer.valueOf(ymd.substring(0, 4)), Integer.valueOf(ymd.substring(4, 6)),
                     Integer.valueOf(ymd.substring(6, 8)), 0, 0, 0, 0, zoneId));
-            val path = "src/test/resouces/2021_09_adachi.html";
+            val path = "src/test/resources/2021_09_adachi.html";
             val doc = Jsoup.parse(new File(path), "UTF-8");
             val venueListFromDb = repo.findByCity("足立区");
             val dtoList = new ArrayList<Covid19VaccinationScheduleDTO>();
@@ -109,7 +109,7 @@ public class ReqAdachikuServiceImplTests {
                 method.invoke(service);
             }).thenReturn(ZonedDateTime.of(Integer.valueOf(ymd.substring(0, 4)), Integer.valueOf(ymd.substring(4, 6)),
                     Integer.valueOf(ymd.substring(6, 8)), 0, 0, 0, 0, zoneId));
-            val path = "src/test/resouces/2021_10_adachi.html";
+            val path = "src/test/resources/2021_10_adachi.html";
             val doc = Jsoup.parse(new File(path), "UTF-8");
             val venueListFromDb = repo.findByCity("足立区");
             val dtoList = new ArrayList<Covid19VaccinationScheduleDTO>();
@@ -136,7 +136,7 @@ public class ReqAdachikuServiceImplTests {
                 method.invoke(service);
             }).thenReturn(ZonedDateTime.of(Integer.valueOf(ymd.substring(0, 4)), Integer.valueOf(ymd.substring(4, 6)),
                     Integer.valueOf(ymd.substring(6, 8)), 0, 0, 0, 0, zoneId));
-            val path = "src/test/resouces/2021_10_adachi_change_dom.html";
+            val path = "src/test/resources/2021_10_adachi_change_dom.html";
             val doc = Jsoup.parse(new File(path), "UTF-8");
             val venueListFromDb = repo.findByCity("足立区");
             val dtoList = new ArrayList<Covid19VaccinationScheduleDTO>();
