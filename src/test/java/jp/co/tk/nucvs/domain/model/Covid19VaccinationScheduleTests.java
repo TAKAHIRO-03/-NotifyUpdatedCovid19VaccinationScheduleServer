@@ -10,12 +10,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 
 import jp.co.tk.nucvs.domain.repo.Covid19VaccinationScheduleRepository;
 import jp.co.tk.nucvs.domain.repo.Covid19VaccinationVenueRepository;
 import lombok.val;
 
 @SpringBootTest
+@TestPropertySource("classpath:application-test.properties")
 public class Covid19VaccinationScheduleTests extends RevisionInfo implements Serializable {
 
     @Autowired

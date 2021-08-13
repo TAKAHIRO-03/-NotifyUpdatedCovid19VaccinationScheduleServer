@@ -14,10 +14,10 @@ import java.util.ArrayList;
 
 import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import jp.co.tk.nucvs.domain.model.Covid19VaccinationScheduleDTO;
@@ -26,6 +26,7 @@ import jp.co.tk.nucvs.domain.service.exception.ParseDomException;
 import lombok.val;
 
 @SpringBootTest
+@TestPropertySource("classpath:application-test.properties")
 public class ReqAdachikuServiceImplTests {
 
     @Autowired
@@ -34,14 +35,7 @@ public class ReqAdachikuServiceImplTests {
     @Autowired
     Covid19VaccinationVenueRepository repo;
 
-    @BeforeEach
-    void 関数実行前() {
-    }
-
-    @Test
-    void 例外が発生せずに正常にリクエストが出来るか() throws Exception {
-        service.request();
-    }
+    private final ZoneId zoneId = ZoneId.of("Asia/Tokyo");
 
     @Test
     void 存在しないURLを指定した時に例外が発生するか() throws Exception {
@@ -53,7 +47,6 @@ public class ReqAdachikuServiceImplTests {
 
     @Test
     void DOM解析_2021年8月() throws Exception {
-        val zoneId = ZoneId.of("Asia/Tokyo");
         try (val mocked = mockStatic(ReqCovid19VaccinationWebSiteService.class)) {
             String ymd = "20210801";
             mocked.when(() -> {
@@ -81,7 +74,6 @@ public class ReqAdachikuServiceImplTests {
 
     @Test
     void DOM解析_2021年9月() throws Exception {
-        val zoneId = ZoneId.of("Asia/Tokyo");
         try (val mocked = mockStatic(ReqCovid19VaccinationWebSiteService.class)) {
             String ymd = "20210901";
             mocked.when(() -> {
@@ -109,7 +101,6 @@ public class ReqAdachikuServiceImplTests {
 
     @Test
     void DOM解析_2021年10月() throws Exception {
-        val zoneId = ZoneId.of("Asia/Tokyo");
         try (val mocked = mockStatic(ReqCovid19VaccinationWebSiteService.class)) {
             String ymd = "20211001";
             mocked.when(() -> {
@@ -137,7 +128,6 @@ public class ReqAdachikuServiceImplTests {
 
     @Test
     void DOMが変更された時ParseDomExceptionが発生されるか() throws Exception {
-        val zoneId = ZoneId.of("Asia/Tokyo");
         try (val mocked = mockStatic(ReqCovid19VaccinationWebSiteService.class)) {
             String ymd = "20211001";
             mocked.when(() -> {

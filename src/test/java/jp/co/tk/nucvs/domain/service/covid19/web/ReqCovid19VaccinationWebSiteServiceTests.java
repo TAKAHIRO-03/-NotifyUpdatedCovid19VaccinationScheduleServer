@@ -15,11 +15,13 @@ import java.util.TreeMap;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 
 import jp.co.tk.nucvs.domain.model.Covid19VaccinationScheduleDTO;
 import lombok.val;
 
 @SpringBootTest
+@TestPropertySource("classpath:application-test.properties")
 public class ReqCovid19VaccinationWebSiteServiceTests {
 
 	ReqCovid19VaccinationWebSiteService service;
