@@ -1,14 +1,14 @@
 package jp.co.tk.nucvs.domain.repo;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import com.github.springtestdbunit.annotation.DatabaseOperation;
-import com.github.springtestdbunit.annotation.DatabaseSetup;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
+
+import com.github.springtestdbunit.annotation.DatabaseOperation;
+import com.github.springtestdbunit.annotation.DatabaseSetup;
 
 import lombok.val;
 
@@ -25,7 +25,7 @@ public class Covid19VaccinationScheduleRepositoryTests {
     @DatabaseSetup(value =  BACK_UP_FILE_PATH, type = DatabaseOperation.CLEAN_INSERT)
     void 実行確認() throws Exception {
         val actual = repo.findAll();
-        assertEquals(29, actual.size());
+        assertEquals(32, actual.size());
     }
 
 }
