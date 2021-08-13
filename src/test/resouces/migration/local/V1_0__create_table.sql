@@ -123,6 +123,8 @@ VALUES
 	('東京', '足立区', '千住地区', '第一中学校'),
 	('東京', '足立区', '千住地区', '生涯学習センター（学びピア２１内）'),
 	('東京', '足立区', '千住地区', '東京電機大学（東京千住キャンパス）')
+	ON CONFLICT 
+	DO NOTHING
 ;
 
 CREATE TABLE IF NOT EXISTS public.user_info (
@@ -137,4 +139,7 @@ CREATE TABLE IF NOT EXISTS public.user_info (
 INSERT INTO
 	public.user_info(line_notify_token, covid19_vaccination_url, city_name)
 VALUES
-	('PDjmXcmFeET08ltQNTkPAxqKt0bzEdbyTfbhVAxpcbl', 'https://adachi.hbf-rsv.jp/', '足立区'); 
+	('PDjmXcmFeET08ltQNTkPAxqKt0bzEdbyTfbhVAxpcbl', 'https://adachi.hbf-rsv.jp/', '足立区')
+	ON CONFLICT 
+	DO NOTHING
+; 
